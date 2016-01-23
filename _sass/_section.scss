@@ -1,0 +1,45 @@
+.section {
+  margin-top: $default-spacing;
+
+  &__sub-title {
+    margin: 0 0;
+
+    &:nth-child(n+3) {
+      margin-top: $default-spacing;
+    }
+  }
+
+  &__title {
+    word-spacing: .5em;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    margin: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background: $secondary-color;
+      height: 1px;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &-wrapper {
+      background: $background-color;
+      padding: 0 ($spacing-unit / 2);
+      position: relative;
+      
+      &:before {
+        content: '';
+        position: absolute;
+      }
+    }
+  }
+
+  &__area-name {
+    margin: $spacing-unit 0 0;
+  }
+}

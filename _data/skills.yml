@@ -1,0 +1,47 @@
+- entry: Knowleage of the following areas
+  values:
+    - name: front-end
+      values:
+        - JavaScript
+        - CSS3
+        - HTML5
+        - BackboneJS
+        - jQuery
+        - ReactJS
+        - Video.js
+        - lodash
+        - Handlebars
+        - Sass
+
+    - name: back-end
+      values:
+        - Node.js
+        - PHP
+        - Wordpress
+        - Jekyll
+        - C#
+        - MySQL
+        - MongoDB
+
+    - name: others technologies
+      values:
+        - HTTP
+        - CORS
+        - REST
+        - WebSockets
+        - Web Video
+
+    - name: applications and tools
+      values:
+        - Sublime Text
+        - JavaScript build tools
+        - Photoshop
+        - Illustrator
+        - Visual Studio
+        - VIM
+
+- entry: Knowleage of foreign languages
+  values:
+    - name: level intermediate
+      values:
+        - English

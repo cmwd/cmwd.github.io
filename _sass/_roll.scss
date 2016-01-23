@@ -1,0 +1,68 @@
+$font-spacing: .3em;
+$roll-spacing: .3rem;
+$roll-extra-spaccing: 1rem;
+
+.roll {
+  margin-top: $roll-spacing;
+  font-size: 0;
+
+  &--extra-spacing {
+    margin-top: $roll-extra-spaccing;
+
+    & + .roll {
+      margin-top: $roll-spacing;
+    }
+  }
+
+  &--flex {
+    display: flex;
+  }
+
+  &__label {
+    color: $tertiary-color;
+    font-size: $base-font-size;
+    white-space: nowrap;
+
+    &:after {
+      content: ':';
+      margin-right: $font-spacing;
+    }
+  }
+
+  &__list {        
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+  }
+
+  &__item {
+    display: inline-block;
+    font-size: 0;
+
+    &:after {
+      content: ',';
+      font-size: $base-font-size;
+      margin-right: $font-spacing;
+    }
+
+    &:last-child {
+      &:after {
+        content: '';
+      }
+    }
+  }
+
+  &__item-content {
+    font-size: $base-font-size;
+
+    .roll--tags & {
+      background: $secondary-color;
+      border-radius: .3em;
+      padding: .1em .3em;
+
+      &:before {
+        content: '#';
+      }
+    }
+  }
+}

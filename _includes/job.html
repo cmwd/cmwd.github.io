@@ -1,0 +1,23 @@
+{% assign job = include.job %}
+<article class="job">
+  <header class="job__header">
+  <h3 class="job__company-name">
+    {% if job.url %}
+      <a href="{{ job.url }}" target="_blank" title="learn more about {{ job.name }}">{{ job.name }}</a>
+    {% else %}
+      {{ job.name }}
+    {% endif %}
+  </h3>
+    {% if job.declarations.size > 0 %}
+      {% for description in job.declarations %}
+        {% assign label = description[0] %}
+        {% assign list = description[1] %}
+        {% include roll.html label=label list=list modifiers="flex,extra-spacing" %}
+      {% endfor %}
+    {% endif %}
+  </header>
+
+  <div class="job__info">
+    {{ job.info | markdownify }}
+  </div>
+</article>

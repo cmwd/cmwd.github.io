@@ -1,0 +1,14 @@
+{% assign links = include.values %}
+{% assign blockName = "aside-box" %}
+
+<div class="{{ blockName }}">
+  <div class="{{ blockName }}__content">
+    <ul class="{{ blockName }}__links">
+      {% for link in links %}
+        <li class="{{ blockName }}__link-holder">
+          <a href="{{ link.value }}" class="{{ blockName }}__link"><i class="fa {{ link.icon }}"></i> {{ link.display }}</a> 
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

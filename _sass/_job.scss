@@ -1,0 +1,34 @@
+.job {
+    &+.job {
+        .job__header {
+            margin-top: $default-spacing;
+        }
+    }
+
+    &__company-name {
+        margin: 0;
+        *,
+        *:visited {
+            color: $text-color;
+        }
+    }
+
+    &__info {
+        margin-top: ($default-spacing / 2);
+        * {
+            margin: 0
+        }
+    }
+
+    &__declarations {
+        margin: 0;
+        list-style: none;
+    }
+
+    &__description {
+        &:before {
+            content: attr(data-property)': ';
+            color: $tertiary-color;
+        }
+    }
+}

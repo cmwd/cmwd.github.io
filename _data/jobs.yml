@@ -1,0 +1,39 @@
+- name: Insys sp.js
+  url: http://www.insys.pl
+  declarations:
+    title: Front-end developer, Team tech-leader
+    time: since februrary 2013
+    responsibilities: 
+      - Build
+      - Front-end Architecture
+      - Front-end Performance
+      - Scalability
+      - GIT Implementation
+      - Research
+      - Web Player Main Developer
+  info: Working as lead front-end developer on OTT, VOD projects. I'm responsible for build websites, smart tv applications, web player and research of new video technologies.
+
+- name: Koduj dla Polski
+  url: http://www.kodujdlapolski.pl/
+  declarations:
+    title: co-leader of Team Poznań
+    time: since august 2015
+    type: non-profit / open-source
+    responsibilities: 
+      - Front-end Architecture
+      - Build, User Interface
+  info: Working in a team on [wysadzulice.pl](http://www.slideshare.net/KomitywaTV) - platform for social engagement in urban space.
+
+- name: Efiltry.pl
+  url: http://efiltry.pl
+  declarations:
+    title: Web developer
+    time: from november 2011 to februrary 2013
+    responsibilities: Technical support, Database, User Interface, Design
+  info: I worked on user interface as well as implementing new solutions based on open-source ecommerce platforms.
+
+- name: Other / Freelance
+  declarations:
+    time: since 2011
+    clients: AmRest, Koloremo, Mayadesign, InsysPlay
+  info: I had the pleasure to work on various freelance projects like portfolio, company page or e-learning application.

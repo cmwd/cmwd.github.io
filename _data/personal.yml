@@ -1,0 +1,32 @@
+name: Piotr Wojtkowiak
+about:
+  - label: date of birth
+    value: 01-02-1988r.
+  - label: living place
+    value: Poznań, Poland
+highlights:
+  - javascript-dev
+  - technology-entusiast
+  - terminal-user
+  - vinyl-collector
+  - freiendly-attitude
+contact:
+  - name: phone
+    icon: fa-mobile
+    value: tel:+48 605-848-880
+    display: +48 605-848-880
+
+  - name: email
+    icon: fa-envelope-o
+    value: mailto:pwojtkowiak@gmail.com
+    display: pwojtkowiak@gmail.com
+
+  - name: github
+    icon: fa-github
+    value: https://www.github.com/cmwd
+    display: github
+
+  - name: linkedin
+    icon: fa-linkedin
+    value: https://www.linkedin.com/in/piotr-wojtkowiak-14397695
+    display: linkedin
