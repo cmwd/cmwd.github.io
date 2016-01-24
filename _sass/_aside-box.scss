@@ -28,13 +28,6 @@
       width: 1.5em;
       text-align: center;
     }
-
-    @media print {
-      &:visited,
-      &:hover {
-        color: $brand-color;
-      }
-    }
   }
 
   &__link-desc {
@@ -44,7 +37,7 @@
 
         &:before {
           content: attr(data-print-value);
-          font-size: $base-font-size;
+          font-size: $print-base-font-size;
         }
       }
     }

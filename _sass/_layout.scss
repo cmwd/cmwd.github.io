@@ -7,6 +7,11 @@
     margin: 0 auto;
     max-width: $content-width;
     padding: 0 $spacing-unit;
+
+    @media print {
+      max-width: auto;
+    }
+
 }
 
 .grid {
