@@ -1,10 +1,6 @@
 .section {
   margin-top: $default-spacing;
 
-  @media print {
-    margin-top: $print-default-spacing;
-  }
-
   &__sub-title {
     margin: 0 0;
 
@@ -23,10 +19,6 @@
     position: relative;
     margin: 0;
     margin-bottom: $half-spacing;
-
-    @media print {
-      margin-bottom: 0;
-    }
 
     @include media-query($mq-sm) {
       word-spacing: .5em;

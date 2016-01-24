@@ -32,6 +32,10 @@ $roll-extra-spaccing: 1rem;
     @include media-query($mq-sm) {
       flex-direction: row;
     }
+
+    @media print {
+      flex-direction: row;
+    }
   }
 
   &__label {

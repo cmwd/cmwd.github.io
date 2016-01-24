@@ -23,22 +23,21 @@
         - MySQL
         - MongoDB
 
-    - name: others technologies
+    - name: others
       values:
+        - Web Video
         - HTTP
         - CORS
         - REST
         - WebSockets
-        - Web Video
 
-    - name: applications and tools
+    - name: applications
       values:
         - Sublime Text
-        - JavaScript build tools
         - Photoshop
         - Illustrator
         - Visual Studio
-        - VIM
+        - vim
 
 - entry: Knowleage of foreign languages
   values:

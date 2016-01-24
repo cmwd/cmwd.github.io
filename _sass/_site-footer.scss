@@ -4,4 +4,9 @@
   &__accept-data-process {
     font-size: .7em;
   }
+
+  @media print {
+    position: absolute;
+    top: calc(200vh - 130px); // hardcoded - need better solution
+  }
 }

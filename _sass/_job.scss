@@ -2,10 +2,6 @@
   &+.job {
     .job__header {
       margin-top: $default-spacing;
-
-      @media print {
-        margin-top: $print-default-spacing;
-      }
     }
   }
 

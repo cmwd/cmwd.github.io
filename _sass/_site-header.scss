@@ -7,10 +7,5 @@
     text-transform: uppercase;
     word-spacing: .8em;
     letter-spacing: .1em;
-
-    @media print {
-      margin: $print-half-spacing 0;
-      padding-bottom: $print-half-spacing;
-    }
   }
 }
