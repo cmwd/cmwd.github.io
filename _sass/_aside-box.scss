@@ -14,6 +14,13 @@
 
   &__link {
     white-space: nowrap;
+    display: block;
+    padding: $quater-spacing 0;
+
+    @include media-query($mq-md) {
+      display: inline;
+      padding: 0;
+    }
     
     .fa {
       width: 1.5em;
