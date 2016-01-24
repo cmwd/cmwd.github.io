@@ -18,31 +18,45 @@
   }
 
   &__title {
-    word-spacing: .5em;
     text-transform: uppercase;
     text-align: center;
     position: relative;
     margin: 0;
+    margin-bottom: $half-spacing;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      background: $secondary-color;
-      height: 1px;
-      width: 100%;
-      z-index: -1;
+    @media print {
+      margin-bottom: 0;
     }
 
-    &-wrapper {
-      background: $background-color;
-      padding: 0 ($spacing-unit / 2);
-      position: relative;
+    @include media-query($mq-sm) {
+      word-spacing: .5em;
       
       &:before {
         content: '';
         position: absolute;
+        top: 50%;
+        left: 0;
+        background: $secondary-color;
+        height: 1px;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+
+    &-wrapper {
+      position: relative;
+      
+      @include media-query($mq-sm) {
+        &:before {
+          content: '';
+          position: absolute;
+          background: $background-color;
+          height: 100%;
+          width: 100%;
+          padding: 0 ($spacing-unit / 2);
+          left: ($spacing-unit / 2) / -1;
+          z-index: -1;
+        }
       }
     }
   }
