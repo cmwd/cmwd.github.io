@@ -39,8 +39,11 @@
         - Visual Studio
         - vim
 
-- entry: Knowleage of foreign languages
+- entry: Languages
   values:
-    - name: level intermediate
+    - name: native        
+      values:
+        - Polish
+    - name: intermediate
       values:
         - English
