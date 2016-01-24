@@ -25,8 +25,15 @@ contact:
     icon: fa-github
     value: https://www.github.com/cmwd
     display: github
+    print: cmwd
 
   - name: linkedin
     icon: fa-linkedin
     value: https://www.linkedin.com/in/piotr-wojtkowiak-14397695
     display: linkedin
+    print: piotr-wojtkowiak-14397695
+
+  - name: www
+    icon: fa-file-code-o
+    value: http://cmwd.github.io
+    display: cmwd.github.io

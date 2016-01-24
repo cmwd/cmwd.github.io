@@ -1,22 +1,43 @@
 .aside-box {
-    flex-basis: 40%;
+  flex-basis: 40%;
 
-    &__content {
-        background: $secondary-color;
-        padding: .3em  1em;
-        border-radius: .2em;
+  &__content {
+    background: $secondary-color;
+    padding: .3em  1em;
+    border-radius: .2em;
+  }
+
+  &__links {
+    margin: 0;
+    list-style: none;
+  }
+
+  &__link {
+    white-space: nowrap;
+    
+    .fa {
+      width: 1.5em;
+      text-align: center;
     }
 
-    &__links {
-        margin: 0;
-        list-style: none;
+    @media print {
+      &:visited,
+      &:hover {
+        color: $brand-color;
+      }
     }
+  }
 
-    &__link {
-        white-space: nowrap;
-        .fa {
-            width: 1.5em;
-            text-align: center;
+  &__link-desc {
+    &[data-print-value] {
+      @media print {
+        font-size: 0;
+
+        &:before {
+          content: attr(data-print-value);
+          font-size: $base-font-size;
         }
+      }
     }
+  }
 }

@@ -6,7 +6,10 @@
     <ul class="{{ blockName }}__links">
       {% for link in links %}
         <li class="{{ blockName }}__link-holder">
-          <a href="{{ link.value }}" class="{{ blockName }}__link"><i class="fa {{ link.icon }}"></i> {{ link.display }}</a> 
+          <a href="{{ link.value }}" class="{{ blockName }}__link">
+            <i class="fa {{ link.icon }}"></i>
+            <span class="{{ blockName }}__link-desc" {% if link.print %}data-print-value="{{ link.print }}"{%endif%}>{{ link.display }}</span>
+          </a> 
         </li>
       {% endfor %}
     </ul>
