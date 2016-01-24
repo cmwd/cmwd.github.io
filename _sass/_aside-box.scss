@@ -1,5 +1,7 @@
 .aside-box {
-  flex-basis: 40%;
+  @include media-query($mq-sm) {
+    flex-basis: 40%;
+  }
 
   &__content {
     background: $secondary-color;

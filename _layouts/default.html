@@ -16,7 +16,7 @@
             {% endfor %}
 
             {% if site.data.personal.highlights.size > 0 %}
-              {% include roll.html label='highlights' list=site.data.personal.highlights modifiers="roll--tags roll--flex" %}
+              {% include roll.html label='highlights' list=site.data.personal.highlights modifiers="roll--tags roll--flex roll--sm-column" %}
             {% endif %}
           </div>
 
@@ -30,7 +30,7 @@
           {% for area in site.data.skills %}
               <h3 class="section__sub-title">{{ area.entry }}:</h3>
               {% for value in area.values %}
-                {% include roll.html label=value.name list=value.values modifiers="roll--flex roll--extra-spacing" %}
+                {% include roll.html label=value.name list=value.values modifiers="roll--flex roll--extra-spacing roll--sm-column" %}
               {% endfor %}
           {% endfor %}
           </div>
@@ -47,7 +47,7 @@
           {% include section-title.html title='Education' %}
           {% for school in site.data.education %}
             <h3 class="section__sub-title">{{ school.type }}</h3>
-            {% include roll.html label="time" list=school.info.time modifiers="extra-spacing" %}
+            {% include roll.html label="time" list=school.info.time modifiers="roll--extra-spacing roll--flex roll--sm-column" %}
             {% include roll.html label="name" list=school.info.name %}
           {% endfor %}
         </div>

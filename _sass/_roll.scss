@@ -26,10 +26,19 @@ $roll-extra-spaccing: 1rem;
     display: flex;
   }
 
+  &--sm-column {
+    flex-direction: column;
+
+    @include media-query($mq-sm) {
+      flex-direction: row;
+    }
+  }
+
   &__label {
     color: $tertiary-color;
     font-size: $base-font-size;
     white-space: nowrap;
+    vertical-align: top;
 
     &:after {
       content: ':';
