@@ -1,5 +1,5 @@
 {% assign blockName = "roll" %}
-{% assign modifiersArray = include.modifiers | split: "," %}
+{% assign modifiersArray = include.modifiers %}
 {% capture modifiers %}{% for mod in modifiersArray %} {{ blockName }}--{{ mod }}{% endfor %}{% endcapture %}
 
 <div class="{{ blockName }}{{ modifiers }}">
