@@ -13,7 +13,7 @@ highlights:
 contact:
   - name: phone
     icon: fa-mobile
-    value: tel:+48 605-848-880
+    value: tel:+48605848880
     display: +48 605-848-880
 
   - name: email
