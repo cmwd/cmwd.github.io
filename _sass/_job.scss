@@ -1,34 +1,38 @@
 .job {
-    &+.job {
-        .job__header {
-            margin-top: $default-spacing;
-        }
-    }
+  &+.job {
+    .job__header {
+      margin-top: $default-spacing;
 
-    &__company-name {
-        margin: 0;
-        *,
-        *:visited {
-            color: $text-color;
-        }
+      @media print {
+        margin-top: $print-default-spacing;
+      }
     }
+  }
 
-    &__info {
-        margin-top: ($default-spacing / 2);
-        * {
-            margin: 0
-        }
+  &__company-name {
+    margin: 0;
+    *,
+    *:visited {
+      color: $text-color;
     }
+  }
 
-    &__declarations {
-        margin: 0;
-        list-style: none;
+  &__info {
+    margin-top: ($default-spacing / 2);
+    * {
+      margin: 0
     }
+  }
 
-    &__description {
-        &:before {
-            content: attr(data-property)': ';
-            color: $tertiary-color;
-        }
+  &__declarations {
+    margin: 0;
+    list-style: none;
+  }
+
+  &__description {
+    &:before {
+      content: attr(data-property)': ';
+      color: $tertiary-color;
     }
+  }
 }

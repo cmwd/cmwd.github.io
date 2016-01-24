@@ -10,7 +10,7 @@
       <div class="container">
 
         <div class="section grid">
-          <div class="about">
+          <div class="about grid__child">
             {% for data in site.data.personal.about %}
               {% include roll.html label=data.label list=data.value %}
             {% endfor %}
@@ -20,7 +20,7 @@
             {% endif %}
           </div>
 
-          {% include aside-box.html values=site.data.personal.contact %}
+          {% include aside-box.html values=site.data.personal.contact customClass="grid__child" %}
         </div>
 
         <div class="section section--qualifications">

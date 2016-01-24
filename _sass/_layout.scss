@@ -7,4 +7,17 @@
 .grid {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+
+    &__child:nth-child(2n) {
+      margin-top: $half-spacing;
+    }
+    
+    @include media-query($mq-sm) {
+      flex-direction: row;
+
+      .grid__child {
+        margin-top: 0;
+      }
+    }
 }

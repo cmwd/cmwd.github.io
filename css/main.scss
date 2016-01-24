@@ -11,9 +11,14 @@ $base-font-size:   15px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
+$print-base-font-size: 12px;
 
 $spacing-unit:     30px;
 $default-spacing: 2em;
+$half-spacing: 1em;
+$print-default-spacing: 1em;
+$print-half-spacing: .5em;
+
 
 $primary-color: black;
 $secondary-color: #e3e3e3;
@@ -33,7 +38,9 @@ $content-width:    960px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
+$mq-sm: 35.5em;
+$mq-md: 48em;
+$mq-lg: 64em;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -42,8 +49,8 @@ $on-laptop:        800px;
 //         padding-left: $spacing-unit / 2;
 //     }
 // }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
+@mixin media-query($mq) {
+    @media screen and (min-width: $mq) {
         @content;
     }
 }

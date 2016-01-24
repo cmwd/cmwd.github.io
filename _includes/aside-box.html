@@ -1,7 +1,7 @@
 {% assign links = include.values %}
 {% assign blockName = "aside-box" %}
 
-<div class="{{ blockName }}">
+<div class="{{ blockName }} {{ include.customClass }}">
   <div class="{{ blockName }}__content">
     <ul class="{{ blockName }}__links">
       {% for link in links %}

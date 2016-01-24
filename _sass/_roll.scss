@@ -9,8 +9,16 @@ $roll-extra-spaccing: 1rem;
   &--extra-spacing {
     margin-top: $roll-extra-spaccing;
 
+    @media print {
+      margin-top: ($roll-extra-spaccing / 2);
+    }
+
     & + .roll {
       margin-top: $roll-spacing;
+
+      @media print {
+        margin-top: 0;
+      }
     }
   }
 

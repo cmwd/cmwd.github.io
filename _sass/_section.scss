@@ -1,11 +1,19 @@
 .section {
   margin-top: $default-spacing;
 
+  @media print {
+    margin-top: $print-default-spacing;
+  }
+
   &__sub-title {
     margin: 0 0;
 
     &:nth-child(n+3) {
       margin-top: $default-spacing;
+
+      @media print {
+        margin-top: $print-default-spacing;
+      }
     }
   }
 
