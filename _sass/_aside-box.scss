@@ -30,6 +30,16 @@
     }
   }
 
+  &__link-holder {
+    &--www {
+      display: none;
+
+      @media print {
+        display: block;
+      }
+    }
+  }
+
   &__link-desc {
     &[data-print-value] {
       @media print {
