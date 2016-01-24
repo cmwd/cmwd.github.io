@@ -12,7 +12,7 @@
       {% for description in job.declarations %}
         {% assign label = description[0] %}
         {% assign list = description[1] %}
-        {% include roll.html label=label list=list modifiers="flex,extra-spacing" %}
+        {% include roll.html label=label list=list modifiers="roll--flex roll--extra-spacing" %}
       {% endfor %}
     {% endif %}
   </header>
