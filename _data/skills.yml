@@ -23,7 +23,7 @@
         - MySQL
         - MongoDB
 
-    - name: others
+    - name: other
       values:
         - Web Video
         - HTTP
