@@ -33,6 +33,8 @@
 
     - name: applications
       values:
+        - JIRA
+        - Confluence
         - Sublime Text
         - Photoshop
         - Illustrator
