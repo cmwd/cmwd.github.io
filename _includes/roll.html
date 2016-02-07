@@ -1,6 +1,13 @@
 {% assign blockName = "roll" %}
+{% assign modifiersArray = include.modifiers | split:',' %}
 
-<div class="{{ blockName }} {{ include.modifiers }}">
+{% capture modifiers %}
+  {% for modifier in modifiersArray %}
+    {{blockName}}--{{modifier}}
+  {% endfor %}
+{% endcapture %}
+
+<div class="{{ blockName }} {{modifiers}}">
     <span class="{{ blockName }}__label">{{ include.label }}</span>
     <ul class="{{ blockName }}__list">
     {% for item in include.list %}

@@ -21,7 +21,7 @@
               {% include roll.html 
                 label='highlights' 
                 list=site.data.personal.highlights 
-                modifiers="roll--tags roll--flex roll--sm-column" %}
+                modifiers="tags,flex,sm-column" %}
             {% endif %}
           </div>
 
@@ -41,7 +41,7 @@
                 {% include roll.html 
                   label=value.name 
                   list=value.values 
-                  modifiers="roll--flex roll--extra-spacing roll--sm-column" %}
+                  modifiers="flex,extra-spacing,sm-column" %}
               {% endfor %}
           {% endfor %}
           </div>
@@ -62,7 +62,7 @@
             {% include roll.html 
               label="time" 
               list=school.info.time 
-              modifiers="roll--extra-spacing roll--flex roll--sm-column" %}
+              modifiers="extra-spacing,flex,sm-column" %}
             {% include roll.html 
               label="name" 
               list=school.info.name %}
