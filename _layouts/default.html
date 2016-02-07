@@ -12,32 +12,44 @@
         <div class="section grid">
           <div class="about grid__child">
             {% for data in site.data.personal.about %}
-              {% include roll.html label=data.label list=data.value %}
+              {% include roll.html 
+                label=data.label 
+                list=data.value %}
             {% endfor %}
 
             {% if site.data.personal.highlights.size > 0 %}
-              {% include roll.html label='highlights' list=site.data.personal.highlights modifiers="roll--tags roll--flex roll--sm-column" %}
+              {% include roll.html 
+                label='highlights' 
+                list=site.data.personal.highlights 
+                modifiers="roll--tags roll--flex roll--sm-column" %}
             {% endif %}
           </div>
 
-          {% include aside-box.html values=site.data.personal.contact customClass="grid__child" %}
+          {% include aside-box.html 
+            values=site.data.personal.contact 
+            customClass="grid__child" %}
         </div>
 
         <div class="section section--qualifications">
-          {% include section-title.html title='Work Qualifications' %}
+          {% include section-title.html 
+            title='Work Qualifications' %}
           
           <div class="section__sub-section">
           {% for area in site.data.skills %}
               <h3 class="section__sub-title">{{ area.entry }}:</h3>
               {% for value in area.values %}
-                {% include roll.html label=value.name list=value.values modifiers="roll--flex roll--extra-spacing roll--sm-column" %}
+                {% include roll.html 
+                  label=value.name 
+                  list=value.values 
+                  modifiers="roll--flex roll--extra-spacing roll--sm-column" %}
               {% endfor %}
           {% endfor %}
           </div>
         </div>
 
         <div class="section section--professional-experience">
-          {% include section-title.html title='Professional Experience' %}
+          {% include section-title.html 
+            title='Professional Experience' %}
           {% for job in site.data.jobs %}
             {% include job.html job=job %}
           {% endfor %}
@@ -47,8 +59,13 @@
           {% include section-title.html title='Education' %}
           {% for school in site.data.education %}
             <h3 class="section__sub-title">{{ school.type }}</h3>
-            {% include roll.html label="time" list=school.info.time modifiers="roll--extra-spacing roll--flex roll--sm-column" %}
-            {% include roll.html label="name" list=school.info.name %}
+            {% include roll.html 
+              label="time" 
+              list=school.info.time 
+              modifiers="roll--extra-spacing roll--flex roll--sm-column" %}
+            {% include roll.html 
+              label="name" 
+              list=school.info.name %}
           {% endfor %}
         </div>
         
