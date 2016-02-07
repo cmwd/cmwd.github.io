@@ -3,17 +3,17 @@
 
 {% capture modifiers %}
   {% for modifier in modifiersArray %}
-    {{blockName}}--{{modifier}}
+    {{ blockName }}--{{ modifier }}
   {% endfor %}
 {% endcapture %}
 
 <div class="{{ blockName }} {{modifiers}}">
-    <span class="{{ blockName }}__label">{{ include.label }}</span>
-    <ul class="{{ blockName }}__list">
-    {% for item in include.list %}
-        <li class="{{ blockName }}__item">
-            <span class="{{ blockName }}__item-content">{{ item | makrdownify }}</span>
-        </li>
-    {% endfor %}
-    </ul>
+  <span class="{{ blockName }}__label">{{ include.label }}</span>
+  <ul class="{{ blockName }}__list">
+  {% for item in include.list %}
+    <li class="{{ blockName }}__item">
+      <span class="{{ blockName }}__item-content">{{ item | makrdownify }}</span>
+    </li>
+  {% endfor %}
+  </ul>
 </div>

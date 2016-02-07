@@ -19,6 +19,7 @@
     position: relative;
     margin: 0;
     margin-bottom: $half-spacing;
+    font-weight: $thin-font-weight;
 
     @include media-query($mq-sm) {
       word-spacing: .5em;
