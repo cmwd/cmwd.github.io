@@ -1,8 +1,19 @@
+- name: Marfeel Solutions S.L.
+  url: https://www.marfeel.company
+  declarations:
+    title: Full Stack Developer
+    time: since march 2016
+    responsibilities:
+      - Working in front and backend environment (Java)
+      - Delivering solid, well performing and scalable solutions
+      - Performance audits
+      - Data scrapping
+  info: Working in team on mobile optimised web application for publishers.
 - name: Insys sp.j.
   url: http://www.insys.pl
   declarations:
     title: Front-end developer, Team tech-leader
-    time: since februrary 2013
+    time: from februrary 2013 to march 2016
     responsibilities: 
       - Build
       - Front-end Architecture
@@ -11,7 +22,7 @@
       - GIT Implementation
       - Research
       - Web Player Main Developer
-  info: Working as lead front-end developer on OTT, VOD projects. I'm responsible for building websites, smart tv applications, web player and research of new video technologies.
+  info: Worked as lead front-end developer on OTT, VOD projects. I was responsible for building websites, smart tv applications, web player and research of new video technologies.
 
 - name: Koduj dla Polski
   url: http://www.kodujdlapolski.pl/

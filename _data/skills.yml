@@ -16,6 +16,7 @@
     - name: back-end
       values:
         - Node.js
+        - Java
         - PHP
         - Wordpress
         - Jekyll
@@ -30,6 +31,7 @@
         - CORS
         - REST
         - WebSockets
+        - Jenkins
 
     - name: applications
       values:
