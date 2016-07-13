@@ -1,0 +1,30 @@
+<div class="section grid">
+  <div class="about grid__child">
+    <ul class="list about__basic-info">
+      <li class="list__item">
+        <h2 class="list__label">date of birth</h2>
+        <span class="list__content">{{ site.data.personal.birthDate }}</span>
+      </li>
+
+      <li class="list__item">
+        <h2 class="list__label">living place</h2>
+        <span class="list__content">{{ site.data.personal.livingPlace }}</span>
+      </li>
+
+      <li class="list__item">
+        <h2 class="list__label">e-mail</h2>
+        <a class="list__content" href="mailto:{{ site.data.personal.email }}" title="Contact me">{{ site.data.personal.email }}</a>
+      </li>
+
+      <li class="list__item">
+        <h2 class="list__label">phone</h2>
+        <a class="list__content" href="tel:{{ site.data.personal.phone }}" title="Contact me">{{ site.data.personal.phone }}</a>
+      </li>
+
+    </ul>
+  </div>
+
+  {% include aside-box.html 
+    values=site.data.personal.contact 
+    customClass="grid__child" %}
+</div>

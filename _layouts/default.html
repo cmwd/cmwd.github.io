@@ -9,27 +9,7 @@
     </div>
     <main class="site-content">
       <div class="container">
-
-        <div class="section grid">
-          <div class="about grid__child">
-            {% for data in site.data.personal.about %}
-              {% include roll.html 
-                label=data.label 
-                list=data.value %}
-            {% endfor %}
-
-            {% if site.data.personal.highlights.size > 0 %}
-              {% include roll.html 
-                label='highlights' 
-                list=site.data.personal.highlights 
-                modifiers="tags,flex,sm-column" %}
-            {% endif %}
-          </div>
-
-          {% include aside-box.html 
-            values=site.data.personal.contact 
-            customClass="grid__child" %}
-        </div>
+        {% include personal-info.html %}
 
         <div class="section section--qualifications">
           {% include section-title.html 

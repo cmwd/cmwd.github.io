@@ -1,26 +1,13 @@
 name: Piotr Wojtkowiak
 title: Web Developer
+birthDate: 01-02-1988
+livingPlace: Barcelona, Spain
+email: pwojtkowiak@gmail.com
+phone: "+48605848880"
 about:
-  - label: date of birth
-    value: 01-02-1988
   - label: living place
     value: Poznań, Poland
-highlights:
-  - technology-entusiast
-  - terminal-user
-  - vinyl-collector
-  - freiendly-attitude
 contact:
-  - name: phone
-    icon: fa-mobile
-    value: tel:+48605848880
-    display: +48 605-848-880
-
-  - name: email
-    icon: fa-envelope-o
-    value: mailto:pwojtkowiak@gmail.com
-    display: pwojtkowiak@gmail.com
-
   - name: github
     icon: fa-github
     value: https://www.github.com/cmwd

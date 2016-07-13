@@ -60,14 +60,15 @@ $mq-lg: 64em;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "site-header",
-        "site-footer",
-        "syntax-highlighting",
-        "section",
-        "aside-box",
-        "job",
-        "roll",
-        "base-print"
+    "base",
+    "layout",
+    "site-header",
+    "site-footer",
+    "syntax-highlighting",
+    "section",
+    "aside-box",
+    "job",
+    "roll",
+    "base-print",
+    "list"
 ;
