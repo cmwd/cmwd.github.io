@@ -1,11 +1,14 @@
 .aside-box {
+  margin-top: $half-spacing;
+
   @include media-query($mq-sm) {
-    flex-basis: 40%;
+    min-width: 30%;
+    margin-top: -$quater-spacing;
   }
 
   &__content {
     background: $secondary-color;
-    padding: .3em  1em;
+    padding: $quater-spacing $half-spacing;
     border-radius: .2em;
   }
 
@@ -15,9 +18,9 @@
   }
 
   &__link {
+    font-size: $base-font-size;
     white-space: nowrap;
-    display: block;
-    margin: $quater-spacing 0;
+    line-height: $base-line-height;
 
     @include media-query($mq-md) {
       display: inline;
@@ -31,11 +34,13 @@
   }
 
   &__link-holder {
+    font-size: 0;
+
     &--www {
       display: none;
 
       @media print {
-        display: block;
+        display: list-item;
       }
     }
   }

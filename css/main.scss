@@ -12,10 +12,10 @@ $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 $print-base-font-size: 12px;
 
-$spacing-unit:     30px;
-$default-spacing: 2em;
-$half-spacing: 1em;
-$quater-spacing: .25em;
+$spacing-unit: 30px;
+$default-spacing: 1.5rem;
+$half-spacing: ($default-spacing / 2);
+$quater-spacing: ($half-spacing / 2);
 $print-default-spacing: 1em;
 $print-half-spacing: .5em;
 
