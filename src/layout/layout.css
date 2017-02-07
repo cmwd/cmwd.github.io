@@ -1,0 +1,34 @@
+.layout__container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.layout__row {
+  font-size: 0;
+}
+
+.layout__row--align-left {
+  text-align: left;
+}
+
+.layout__column {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.layout__column--2 {
+  width: 16.66%;
+}
+
+.layout__column--3 {
+  width: 25%;
+}
+
+.layout__column--9 {
+  width: 75%;
+}
+
+.layout__column--10 {
+  width: 83.33%;
+}
