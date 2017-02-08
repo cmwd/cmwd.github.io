@@ -1,14 +1,10 @@
 .layout__container {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .layout__row {
   font-size: 0;
-}
-
-.layout__row--align-left {
-  text-align: left;
 }
 
 .layout__column {
@@ -17,12 +13,25 @@
   vertical-align: top;
 }
 
+.layout__column-offset--1 {
+  margin-left: 8.33%;
+}
+
 .layout__column--2 {
   width: 16.66%;
 }
 
 .layout__column--3 {
   width: 25%;
+}
+
+.layout__column--4 {
+  width: 33.33%;
+}
+
+
+.layout__column--8 {
+  width: 66.66%;
 }
 
 .layout__column--9 {

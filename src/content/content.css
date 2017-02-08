@@ -1,0 +1,40 @@
+.content__section,
+.content__possition {
+  margin-bottom: 2rem;
+}
+
+.content__possition-title {
+  margin: 0;
+}
+
+.content__possition-details {
+  color: var(--base00);
+  margin-bottom: 0.7rem;
+}
+
+.content__possition-tagline {
+  color: var(--base001);
+}
+
+.content__possition-tag {
+  margin-right: 0.5rem;
+  cursor: default;
+}
+
+.content__possition-tag::before {
+  content: '#';
+}
+
+.content__list-item {
+  position: relative;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.content__list-item:before {
+  content: '•';
+  color: var(--base002);
+  position: absolute;
+  left: -1rem;
+  font-size: 1.3rem;
+}
+

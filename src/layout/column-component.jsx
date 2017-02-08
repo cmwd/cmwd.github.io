@@ -7,11 +7,15 @@ export default function ColumnComponent(props) {
     className,
     col,
     children,
+    offset,
   } = props;
   const classes = classNames(
     className,
     'layout__column',
-    `layout__column--${col}`
+    `layout__column--${col}`,
+    {
+      [`layout__column-offset--${offset}`]: typeof offset === "number",
+    }
   );
 
   return (

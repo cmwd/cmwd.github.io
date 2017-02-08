@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -14,6 +15,61 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script id="js-preloaded-state" type="application/json">
+    {
+    "hello": {
+      "title": "Hello world, I'm Piotr",
+      "picture": "https://placeholdit.imgix.net/~text?txtsize=33&txt=me&w=150&h=200",
+      "description": "I’m a web developer passionate about creating rich, scalable applications. I also love to learn new techs and helping others to learn awesome things."
+    },
+    "professionalCapabilities": {
+      "title": "Professional capabilities",
+      "items": [
+        { "content": "Writing modular, performant and reusable code using design patterns" },
+        { "content": "Building and maintaining high-load applications" },
+        { "content": "Experience in delivering solutions for variety of platforms in progressive enhancement way" },
+        { "content": "Architecture and planning" }
+      ]
+    },
+    "professionalExpereince": {
+      "title": "Professional experience",
+      "items": [
+        {
+          "company": "Marfeel Solutions s.l.",
+          "location": "Barcelona, Spain",
+          "possition": "Front-end engineer",
+          "start": "03-2016",
+          "end": "present",
+          "description": "Maintaining and crafting new features in Marfeel core product. Working both in front-end and back-end. Responsible for exploring new technologies with special focus on JavaScript and mobile performance.\n I have been working close with such technologies as:"
+        },
+        {
+          "company": "Insys sp. z o.o",
+          "location": "Poznań, Poland",
+          "possition": "Technical teem leader",
+          "start": "06-2015",
+          "end": "03-2016",
+          "description": "Working on a projects close with design and backend team, ensuring it’s delivered at the highest standard. Exploring client-side technologies."
+        },
+        {
+          "company": "Insys sp. z o.o",
+          "location": "Poznań, Poland",
+          "possition": "Front-end developer",
+          "start": "02-2013",
+          "end": "06-2015",
+          "description": "Building applications for a web and TV devices.\n Technologies I have been using on a daily bases:"
+        },
+        {
+          "company": "Efiltry.pl ",
+          "location": "Gostyń, Poland",
+          "possition": "Web developer",
+          "start": "11-2011",
+          "end": "02-2013",
+          "description": "Working on user interface, data scrapping and implementing new solution based on Magento e-commerce platform.\n I have been using:"
+        }
+      ]
+    }
+  }
+    </script>
   </head>
   <body>
     <div id="root"></div>
@@ -27,5 +83,5 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
-  </body>
+      </body>
 </html>

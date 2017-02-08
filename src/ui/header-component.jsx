@@ -1,17 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default function Row(props) {
+import UiDecorator from './ui-decorator-component';
+
+function Header(props) {
   const {
-    as: ElementType = 'div',
+    as: ElementType = 'h1',
     className,
     children,
   } = props;
 
-  const classes = classNames(className, 'layout__row');
+  const classes = classNames(className, 'ui__header');
 
   return (
     <ElementType className={classes} children={children} />
   );
 }
+
+export default UiDecorator(Header);
 
