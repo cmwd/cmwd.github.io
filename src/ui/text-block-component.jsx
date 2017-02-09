@@ -6,9 +6,9 @@ import UiDecorator from './ui-decorator-component';
 function TextBlock(props) {
   const {
     as: ElementType = 'span',
-    children,
     className,
     secondary = false,
+    ...rest
   } = props;
 
   const classes = classNames(
@@ -19,7 +19,7 @@ function TextBlock(props) {
     });
 
   return (
-    <ElementType className={classes} children={children} />
+    <ElementType className={classes} {...rest} />
   );
 }
 
