@@ -1,47 +1,60 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Header, TextBlock } from '../ui';
+import { Header, TextBlock, Link } from '../ui';
 import Highlighter from '../highlighter';
 
 export default function Possition(props) {
   const {
     possition,
-    company,
+    name,
     location,
     description,
     start,
     end,
-    nerdingOut = ['ES6', 'Node', 'Java']
+    url,
+    tags: tagsRaw,
   } = props;
-  const tags = nerdingOut.map(s => s.toLowerCase());
+  const tags = tagsRaw.map(tag => tag.toLowerCase());
+  const details = [
+    end && start ? `${end} - ${start}` : '',
+    location ? ` / ${location}` : '',
+  ].join('');
+  const companyName = url
+    ? <Link
+      className="content__possition-link"
+      href={url}
+      children={name}
+      iconName="external-link"
+      iconAppend
+    />
+    : name;
 
   return (
-    <Highlighter
-      stack={tags}
-      context="tech"
-    >{(({ highlight, highlighting, set, cancel }) => (
-      <article className={classNames(
-        'content__possition',
-        {
-          'content__possition--highlight': highlight,
-          'content__possition--lowpoint': highlighting && !highlight,
+    <article className="content__possition">
+      <header>
+        <Header
+          className="content__possition-title"
+          as="h3"
+        >
+          {possition ? `${possition} at ` : possition}
+          {companyName}
+        </Header>
+        { !details.length ? null :
+            <TextBlock
+              secondary
+              className="content__possition-details"
+              as="span"
+              children={details}
+            />
         }
-      )}>
-        <header>
-          <Header
-            className="content__possition-title"
-            as="h3"
-            children={`${possition} at ${company}`}
-          />
-          <TextBlock
-            secondary
-            className="content__possition-details"
-            as="span"
-          >{end} - {start} / {location}
-          </TextBlock>
-        </header>
-        <TextBlock as="p" children={description} />
+      </header>
+      <TextBlock
+        as="p"
+        className="content__possition-description"
+        children={description}
+      />
+      <Highlighter stack={tags}>{(({ mutateClass, set, cancel }) => (
         <TextBlock
           secondary
           as="div"
@@ -49,15 +62,20 @@ export default function Possition(props) {
           onMouseLeave={cancel}
           children={tags.map(tag => (
             <span
-              className="content__possition-tag"
+              className={mutateClass(
+                tag,
+                'content__possition-tag',
+                'content__possition-tag--highlight'
+              )}
               key={tag}
               data-tag={tag}
               onMouseEnter={(event) => set(event.target.dataset.tag)}
-            >{tag}</span>
+              children={tag}
+            />
           ))}
         />
-      </article>
-    ))}</Highlighter>
+      ))}</Highlighter>
+    </article>
   );
 }
 

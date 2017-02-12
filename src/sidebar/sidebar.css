@@ -2,8 +2,21 @@
   display: block;
   width: 100%;
   height: auto;
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 9rem;
+  max-height: 9rem;
   border-radius: 100%;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
+}
+
+.sidebar__introduction {
+  margin-bottom: 1rem;
+}
+
+.sidebar__links {
+  text-align: center;
+}
+
+.sidebar__link {
+  padding: 0 0.1rem;
+  margin: 0 0.2rem;
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { TextBlock } from '../ui';
+
 let keyCnt = 0;
 
 function mergeItems(state, newState) {
@@ -29,10 +31,12 @@ export default class ListComponent extends Component {
       <ul
         className="content__list"
       >{this.state.items.map(item => (
-        <li
-          className="content__list-item"
+        <TextBlock
+          bullet
+          as="li"
           key={item.key}
-        >{item.content}</li>
+          children={item.content}
+        />
       ))}</ul>
     );
   }

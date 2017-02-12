@@ -41,3 +41,10 @@
 .layout__column--10 {
   width: 83.33%;
 }
+
+@media print {
+  .layout__column-print--12 {
+    width: 100%;
+    padding-right: 4rem;
+  }
+}

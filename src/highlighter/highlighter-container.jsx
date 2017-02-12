@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 let subscribbers = [];
 let current = null;
@@ -12,8 +13,8 @@ function subscribe(fn) {
   subscribbers.push(fn);
 }
 
-function get() {
-  return current;
+function unsubscribe(fn) {
+  subscribbers = subscribbers.filter(f => f !== fn);
 }
 
 export default class Highighter extends Component {
@@ -24,18 +25,33 @@ export default class Highighter extends Component {
   constructor(props) {
     super(props);
 
-    subscribe((current) =>
+    this.mutateClass = this.mutateClass.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  componentDidMount() {
+    subscribe(this.onChangeHandler);
+  }
+
+  componentWillUnmount() {
+    unsubscribe(this.onChangeHandler);
+  }
+
+  onChangeHandler(current) {
       this.setState({
-        highlight: props.stack.includes(current),
-      }));
+        highlight: this.props.stack.includes(current),
+      });
+  }
+
+  mutateClass(item, staticClassName, activeClassName) {
+    return classNames(staticClassName, {
+      [activeClassName]: item === current,
+    });
   }
 
   render() {
-    const { highlight } = this.state;
-
     return this.props.children({
-      highlight,
-      highlighting: get() !== null,
+      mutateClass: this.mutateClass,
       set: set,
       cancel: () => set(null)
     });
