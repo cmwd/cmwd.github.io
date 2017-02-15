@@ -20,3 +20,23 @@
   padding: 0 0.1rem;
   margin: 0 0.2rem;
 }
+
+@media print {
+  .sidebar__header,
+  .sidebar__introduction {
+    text-align: left;
+    padding: 0;
+  }
+
+  .sidebar__link {
+    text-align: left;
+    display: block;
+    line-height: 1.5rem;
+  }
+
+  .sidebar__link:after {
+    content: attr(href);
+    margin-left: 1rem;
+  }
+}
+

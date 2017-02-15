@@ -5,19 +5,17 @@ export default function ColumnComponent(props) {
   const {
     as: ElementType = 'div',
     className,
-    col,
-    children,
     offset,
     print,
+    unit = 12,
+    col,
     ...rest
   } = props;
   const classes = classNames(
     className,
-    'layout__column',
-    `layout__column--${col}`,
+    'ui__column',
     {
-      [`layout__column-offset--${offset}`]: typeof offset === 'number',
-      [`layout__column-print--${print}`]: typeof print === 'number',
+      [`pure-u-${col}-${unit}`]: typeof col === 'number',
     }
   );
 
@@ -25,7 +23,6 @@ export default function ColumnComponent(props) {
     <ElementType
       {...rest}
       className={classes}
-      children={children}
     />
   );
 }

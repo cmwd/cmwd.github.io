@@ -23,6 +23,11 @@ h3.ui__header {
   display: block;
 }
 
+.ui--text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
 .ui__text-block--secondary {
   font-size: 0.8rem;
 }
@@ -53,7 +58,7 @@ h3.ui__header {
   color: var(--base002);
   position: absolute;
   left: -1rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 

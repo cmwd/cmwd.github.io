@@ -13,6 +13,7 @@ function TextBlock(props) {
 
   const classes = classNames(
     className,
+    'ui--text',
     'ui__text-block',
     {
       'ui__text-block--secondary': secondary,

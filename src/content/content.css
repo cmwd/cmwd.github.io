@@ -1,6 +1,14 @@
+.content__section {
+  padding: 0 3rem;
+}
+
 .content__section,
 .content__possition {
   margin-bottom: 2rem;
+}
+
+.content__list {
+  padding: 0;
 }
 
 .content__possition:hover .ui__icon {
@@ -63,5 +71,15 @@
 
 .content__possition-tag--highlight {
   color: var(--base002);
+}
+
+@media print {
+  .content__possition-tagline {
+    color: var(--base00);
+  }
+
+  .content__section {
+    padding: 0;
+  }
 }
 

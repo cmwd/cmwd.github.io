@@ -8,7 +8,11 @@ export default function Row(props) {
     children,
   } = props;
 
-  const classes = classNames(className, 'layout__row');
+  const classes = classNames(
+    className,
+    'ui__row',
+    'pure-g'
+  );
 
   return (
     <ElementType className={classes} children={children} />

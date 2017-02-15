@@ -10,7 +10,7 @@ function Header(props) {
     children,
   } = props;
 
-  const classes = classNames(className, 'ui__header');
+  const classes = classNames(className, 'ui--text', 'ui__header');
 
   return (
     <ElementType className={classes} children={children} />

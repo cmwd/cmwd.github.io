@@ -32,6 +32,7 @@ export default function Sidebar(props) {
         padded
         centered
         as="h1"
+        className="sidebar__header"
         children={title}
       />
       <TextBlock
