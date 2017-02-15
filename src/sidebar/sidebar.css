@@ -29,6 +29,14 @@
 }
 
 @media print {
+  .sidebar__picture {
+    margin-left: 0;
+  }
+
+  .sidebar__content {
+    padding: 0 1rem;
+  }
+
   .sidebar__header,
   .sidebar__introduction {
     text-align: left;

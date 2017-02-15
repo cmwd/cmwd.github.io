@@ -21,6 +21,10 @@ body {
   background: var(--base3);
 }
 
+body * {
+  box-sizing: border-box;
+}
+
 @media print {
   .app__sidebar {
     width: 100%;

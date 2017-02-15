@@ -41,8 +41,8 @@ export default function Sidebar(props) {
     <div className={classNames(className, 'sidebar')}>
       <Column
         className="sidebar__picture-wrapper"
-        unit={4}
-        col={1}
+        unit={24}
+        col={4}
       >
         <img
           className="sidebar__picture"
@@ -51,8 +51,8 @@ export default function Sidebar(props) {
       </Column>
       <Column
         className="sidebar__content"
-        unit={4}
-        col={3}
+        unit={24}
+        col={20}
       >
         <Header
           padded
