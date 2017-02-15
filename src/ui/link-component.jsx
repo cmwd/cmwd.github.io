@@ -8,14 +8,21 @@ function Link(props) {
     as: ElementType = 'a',
     className,
     target = '_blank',
+    print,
     ...rest
   } = props;
 
-  const classes = classNames('ui__link', className);
+  const attributes = {
+    'data-print': print,
+  };
+  const classes = classNames(className, 'ui__link', {
+    'ui__link--print': !!print,
+  });
 
   return (
     <ElementType
       {...rest}
+      {...attributes}
       className={classes}
       target={target}
     />

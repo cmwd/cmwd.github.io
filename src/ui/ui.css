@@ -23,7 +23,8 @@ h3.ui__header {
   display: block;
 }
 
-.ui--text {
+.ui--text,
+.ui__link {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -61,4 +62,10 @@ h3.ui__header {
   font-size: 1.2rem;
 }
 
+@media print {
+  .ui__link--print:after {
+    content: attr(data-print);
+    margin-left: 0.5rem;
+  }
+}
 

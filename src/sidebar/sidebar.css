@@ -21,6 +21,13 @@
   margin: 0 0.2rem;
 }
 
+@media not print {
+  .sidebar__picture-wrapper,
+  .sidebar__content {
+    width: 100%;
+  }
+}
+
 @media print {
   .sidebar__header,
   .sidebar__introduction {
@@ -30,13 +37,9 @@
 
   .sidebar__link {
     text-align: left;
-    display: block;
     line-height: 1.5rem;
-  }
-
-  .sidebar__link:after {
-    content: attr(href);
-    margin-left: 1rem;
+    padding: 0;
+    margin: 0 1rem 0 0;
   }
 }
 
