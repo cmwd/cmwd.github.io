@@ -1,0 +1,98 @@
+{
+  "hello": {
+    "title": "Hello world, I'm Piotr",
+    "picture": "https://placeholdit.imgix.net/~text?txtsize=33&txt=me&w=150&h=200",
+    "description": "I’m a web developer passionate about creating rich, scalable applications. I also love to learn new techs and helping others to learn awesome things."
+  },
+  "professionalCapabilities": {
+    "title": "Professional capabilities",
+    "items": [
+      { "content": "Writing modular, performant and reusable code using design patterns" },
+      { "content": "Building and maintaining high-load applications" },
+      { "content": "Experience in delivering solutions for variety of platforms in progressive enhancement way" },
+      { "content": "Architecture and planning" }
+    ]
+  },
+  "professionalExpereince": {
+    "title": "Professional experience",
+    "items": [
+      {
+        "name": "Marfeel Solutions s.l.",
+        "location": "Barcelona, Spain",
+        "possition": "Front-end engineer",
+        "start": "03-2016",
+        "end": "present",
+        "url": "https://www.marfeel.com/",
+        "tags": ["ES6", "SASS","Jasmine", "Karma", "CSS3", "Java", "Webpack", "AMP", "Spring", "Cordova"],
+        "description": "Maintaining and crafting new features in Marfeel core product. Working both in front-end and back-end. Responsible for exploring new technologies with special focus on JavaScript and mobile performance.\n I have been working close with such technologies as:"
+      },
+      {
+        "name": "Insys sp. z o.o",
+        "location": "Poznań, Poland",
+        "possition": "Technical teem leader",
+        "start": "06-2015",
+        "end": "03-2016",
+        "url": "http://www.insys.pl/",
+        "tags": ["Team-Lead", "Architecture", "Research"],
+        "description": "Working on a projects close with design and backend team, ensuring it’s delivered at the highest standard. Exploring client-side technologies."
+      },
+      {
+        "name": "Insys sp. z o.o",
+        "location": "Poznań, Poland",
+        "possition": "Front-end developer",
+        "start": "02-2013",
+        "end": "06-2015",
+        "url": "http://www.insys.pl/",
+        "tags": ["ES6", "CSS3", "SASS", "React", "Backbone", "jQuery", "WebVideo", "C#"],
+        "description": "Building applications for a web and TV devices.\n Technologies I have been using on a daily bases:"
+      },
+      {
+        "name": "Efiltry.pl ",
+        "location": "Gostyń, Poland",
+        "possition": "Web developer",
+        "start": "11-2011",
+        "end": "02-2013",
+        "tags": ["PHP", "Magento", "CSS3"],
+        "url": "https://efiltry.pl/",
+        "description": "Working on user interface, data scrapping and implementing new solution based on Magento e-commerce platform.\n I have been using:"
+      }
+    ]
+  },
+  "openSource": {
+    "title": "Open Source",
+    "items": [
+      {
+        "name": "Awesome Conferences",
+        "description": "todo",
+        "url": "https://github.com/cmwd/awesome-conferences-app",
+        "tags": ["Node", "React", "ES6", "Docker"]
+      },
+      {
+        "name": "Koduj dla Polski",
+        "end": "03-2016",
+        "start": "08-2015",
+        "description": "todo",
+        "url": "http://kodujdlapolski.pl/projects/wysadz-ulice/",
+        "tags": ["Backbone", "ES6", "Browserify", "Gulp", "Mocha", "Python"]
+      }
+    ]
+  },
+  "freelance": {
+    "title": "Freelance",
+    "items": [
+      {
+        "name": "Koloremo",
+        "description": "todo",
+        "url": "http://koloremo.pl",
+        "tags": ["Wordpress", "Timber", "SASS", "ES6"]
+      },
+      {
+        "name": "Maja Sobura - Industrial Designer",
+        "description": "todo",
+        "url": "http://majasobura.com/",
+        "tags": ["Wordpress", "SASS"]
+      }
+    ]
+  }
+}
+

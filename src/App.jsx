@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+
 import { Container, Column, Row } from './layout';
 import { List, Section, Possition } from './content';
 import Sidebar from './sidebar/sidebar-component';
+import dataModel from '../data.json';
+
 import './App.css';
 
 class App extends Component {
+  state = dataModel;
+
   render() {
     const {
       hello,
@@ -12,7 +17,7 @@ class App extends Component {
       professionalExpereince,
       openSource,
       freelance,
-    } = this.props;
+    } = this.state;
 
     return (
       <Container className="App">
