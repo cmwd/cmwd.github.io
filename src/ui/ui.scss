@@ -1,7 +1,9 @@
+@import '../variables.scss';
+
 .ui__header {
   line-height: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--base03);
+  color: $base03;
 }
 
 h1.ui__header {
@@ -19,7 +21,7 @@ h3.ui__header {
 .ui__text-block {
   font-size: 1rem;
   line-height: 1.5rem;
-  color: var(--base03);
+  color: $base03;
   display: block;
 }
 
@@ -35,11 +37,11 @@ h3.ui__header {
 
 .ui__link {
   text-decoration: none;
-  color: var(--base00);
+  color: $base00;
 }
 
 .ui__link:hover {
-  color: var(--base002);
+  color: $base002;
 }
 
 .ui--padded {
@@ -56,7 +58,7 @@ h3.ui__header {
 
 .ui--bullet:before {
   content: '•';
-  color: var(--base002);
+  color: $base002;
   position: absolute;
   left: -1rem;
   font-size: 1.2rem;

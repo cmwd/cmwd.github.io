@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .content__section {
   padding: 0 3rem;
 }
@@ -16,11 +18,11 @@
 }
 
 .content__possition:hover .content__possition-link {
-  color: var(--base00);
+  color: $base00;
 }
 
 .content__possition:hover .content__possition-link:hover {
-  color: var(--base002);
+  color: $base002;
 }
 
 .content__possition-title {
@@ -28,7 +30,7 @@
 }
 
 .content__possition-details {
-  color: var(--base00);
+  color: $base00;
   margin-bottom: 1rem;
 }
 
@@ -37,7 +39,7 @@
 }
 
 .content__possition-link {
-  color: var(--base02);
+  color: $base02;
 }
 
 .content__possition-link .ui__icon {
@@ -47,7 +49,7 @@
 }
 
 .content__possition-tagline {
-  color: var(--base001);
+  color: $base001;
 }
 
 .content__possition-tag {
@@ -70,12 +72,12 @@
 }
 
 .content__possition-tag--highlight {
-  color: var(--base002);
+  color: $base002;
 }
 
 @media print {
   .content__possition-tagline {
-    color: var(--base00);
+    color: $base00;
   }
 
   .content__section {
