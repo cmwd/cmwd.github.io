@@ -36,6 +36,7 @@ export default function Possition(props) {
         <Header
           className="content__possition-title"
           as="h3"
+          type="subsection"
         >
           {possition ? `${possition} at ` : possition}
           {companyName}

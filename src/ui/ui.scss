@@ -1,77 +1,85 @@
 @import '../variables.scss';
 
-.ui__header {
-  line-height: 1.5rem;
-  margin-bottom: 1rem;
-  color: $base03;
-}
-
-h1.ui__header {
-  font-size: 1.6rem;
-}
-
-h2.ui__header {
-  font-size: 1.5rem;
-}
-
-h3.ui__header {
-  font-size: 1.2rem;
-}
-
-.ui__text-block {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: $base03;
-  display: block;
-}
-
-.ui--text,
-.ui__link {
+%ui-text {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  letter-spacing: initial;
 }
 
-.ui__text-block--secondary {
-  font-size: 0.8rem;
-}
-
-.ui__link {
-  text-decoration: none;
-  color: $base00;
-}
-
-.ui__link:hover {
-  color: $base002;
-}
-
-.ui--padded {
-  padding: 0 2rem;
-}
-
-.ui--centered {
-  text-align: center;
-}
-
-.ui--bullet {
-  position: relative;
-}
-
-.ui--bullet:before {
-  content: '•';
-  color: $base002;
-  position: absolute;
-  left: -1rem;
-  font-size: 1.2rem;
-}
-
-@media print {
-  .ui__link--print:after {
-    content: attr(data-print);
-    margin-left: 0.5rem;
+.ui {
+  &--text {
+    @extend %ui-text;
   }
 
-  .ui--bullet {
+  &--padded {
+    padding: 0 2rem;
+  }
+
+  &--centered {
+    text-align: center;
+  }
+
+  &--bullet {
+    position: relative;
     margin-left: 1rem;
+
+    @include screen-md {
+      margin-left: 0;
+    }
+
+    &:before {
+      content: '•';
+      color: $base002;
+      position: absolute;
+      left: -1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__header {
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    color: $base03;
+
+    &--main {
+      font-size: 1.6rem;
+    }
+
+    &--section {
+      font-size: 1.5rem;
+    }
+
+    &--subsection {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__text-block {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $base03;
+    display: block;
+
+    &--secondary {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__link {
+    @extend %ui-text;
+    text-decoration: none;
+    color: $base00;
+
+    &:hover {
+      color: $base002;
+    }
+
+    &--print:after {
+      @include screen-print {
+        content: attr(data-print);
+        margin-left: 0.5rem;
+      }
+    }
   }
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { Header, TextBlock, Link } from '../ui';
-import { Column } from '../layout';
 
 import './sidebar.css';
 
@@ -39,35 +38,21 @@ export default function Sidebar(props) {
 
   return (
     <div className={classNames(className, 'sidebar')}>
-      <Column
-        className="sidebar__picture-wrapper"
-        unit={24}
-        col={4}
-      >
-        <img
-          className="sidebar__picture"
-          src={picture}
-        />
-      </Column>
-      <Column
-        className="sidebar__content"
-        unit={24}
-        col={20}
-      >
+      <div className="sidebar__picture-wrapper pure-u-4-24">
+        <img className="sidebar__picture" src={picture} />
+      </div>
+      <div className="sidebar__content pure-u-20-24">
         <Header
-          padded
-          centered
           as="h1"
           className="sidebar__header"
+          type="main"
           children={title}
         />
         <TextBlock
-          padded
-          centered
           className="sidebar__introduction"
           children={description}
         />
-      </Column>
+      </div>
       <div
         className="sidebar__links"
         children={links.map(props =>

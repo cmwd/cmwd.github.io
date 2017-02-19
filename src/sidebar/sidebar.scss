@@ -1,53 +1,66 @@
-.sidebar__picture {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 9rem;
-  max-height: 9rem;
-  border-radius: 100%;
-  margin: 0 auto 1rem;
-}
+@import '../variables.scss';
 
-.sidebar__introduction {
-  margin-bottom: 1rem;
-}
-
-.sidebar__links {
-  text-align: center;
-}
-
-.sidebar__link {
-  padding: 0 0.1rem;
-  margin: 0 0.2rem;
-}
-
-@media not print {
-  .sidebar__picture-wrapper,
-  .sidebar__content {
+.sidebar {
+  &__picture {
+    display: block;
     width: 100%;
-  }
-}
+    height: auto;
+    max-width: 9rem;
+    max-height: 9rem;
+    border-radius: 100%;
+    margin: 0 auto 1rem;
 
-@media print {
-  .sidebar__picture {
-    margin-left: 0;
-  }
-
-  .sidebar__content {
-    padding: 0 1rem;
-  }
-
-  .sidebar__header,
-  .sidebar__introduction {
-    text-align: left;
-    padding: 0;
+    @include screen-print {
+      margin-left: 0;
+    }
   }
 
-  .sidebar__link {
-    text-align: left;
-    line-height: 1.5rem;
-    padding: 0;
-    margin: 0 1rem 0 0;
+  &__picture-wrapper {
+    @include screen-not-print {
+      width: 100%;
+    }
+  }
+
+  &__header {
+    @include screen-print {
+      text-align: left;
+      padding: 0;
+    }
+  }
+
+  &__content {
+    @include screen-print {
+      padding: 0 1rem;
+    }
+
+    @include screen-not-print {
+      width: 100%;
+    }
+  }
+
+  &__introduction {
+    margin-bottom: 1rem;
+
+    @include screen-print {
+      text-align: left;
+      padding: 0;
+    }
+  }
+
+  &__links {
+    text-align: center;
+  }
+
+  &__link {
+    padding: 0 0.1rem;
+    margin: 0 0.2rem;
+
+    @include screen-print {
+      text-align: left;
+      line-height: 1.5rem;
+      padding: 0;
+      margin: 0 1rem 0 0;
+    }
   }
 }
 

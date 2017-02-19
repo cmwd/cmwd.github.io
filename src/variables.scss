@@ -16,3 +16,36 @@ $base006: #268bd2;
 $base007: #2aa198;
 $base008: #859900;
 
+$break-point-md: 48em;
+$break-point-sm: 35.5em;
+
+@mixin screen-md {
+  @media screen and (min-width: $break-point-md) {
+    @content;
+  }
+}
+
+
+@mixin screen-sm {
+  @media screen and (min-width: $break-point-sm) {
+    @content;
+  }
+}
+
+@mixin screen-print {
+  @media print {
+    @at-root {
+      @media print {
+        & { @content; }
+      }
+    }
+  }
+}
+
+@mixin screen-not-print {
+  @at-root {
+    @media not print {
+      & { @content }
+    }
+  }
+}

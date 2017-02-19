@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Header, TextBlock } from '../ui';
-import { Column, Row } from '../layout';
 
 export default function Section(props) {
   return (
@@ -9,6 +8,7 @@ export default function Section(props) {
       <Header
         as="h2"
         children={props.title}
+        type="section"
       />
       <TextBlock
         as="div"

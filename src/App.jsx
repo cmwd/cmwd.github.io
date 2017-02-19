@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { Container, Column, Row } from './layout';
 import { List, Section, Possition } from './content';
 import Sidebar from './sidebar/sidebar-component';
 import dataModel from '../data.json';
@@ -20,20 +19,13 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Container className="App">
-        <Row>
-          <Column
-            className="app__sidebar"
+      <div className="container">
+        <div className="pure-g">
+          <Sidebar
+            className="app__sidebar pure-u-md-3-8"
             {...hello}
-            unit={8}
-            col={3}
-            as={Sidebar}
           />
-          <Column
-            className="app__content"
-            unit={8}
-            col={5}
-          >
+          <div className="app__content pure-u-md-5-8">
             <Section title={professionalCapabilities.title}>
               <List items={professionalCapabilities.items} />
             </Section>
@@ -50,9 +42,9 @@ class App extends Component {
                 ))}
               />
             ))}
-          </Column>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     );
   }
 }

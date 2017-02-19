@@ -8,6 +8,16 @@ body * {
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+
+  @include screen-sm {
+    padding: 0 3rem;
+  }
+}
+
 @media print {
   .app__sidebar {
     width: 100%;
