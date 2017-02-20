@@ -6,14 +6,6 @@
   letter-spacing: initial;
 }
 
-%ui-header-dynamic-alignment {
-  text-align: center;
-
-  @include screen-md {
-    text-align: left;
-  }
-}
-
 .ui {
   &--text {
     @extend %ui-text;
@@ -50,12 +42,10 @@
     color: $base03;
 
     &--main {
-      @extend %ui-header-dynamic-alignment;
       font-size: 1.6rem;
     }
 
     &--section {
-      @extend %ui-header-dynamic-alignment;
       font-size: 1.5rem;
     }
 

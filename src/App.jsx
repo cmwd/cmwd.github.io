@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import 'purecss/build/base-min.css';
+import 'purecss/build/grids-min.css';
+import 'purecss/build/grids-responsive-min.css';
+import 'purecss/build/grids-units-min.css';
 
 import { List, Section, Possition } from './content';
 import Sidebar from './sidebar/sidebar-component';

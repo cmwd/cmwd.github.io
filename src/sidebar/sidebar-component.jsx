@@ -38,10 +38,10 @@ export default function Sidebar(props) {
 
   return (
     <div className={classNames(className, 'sidebar')}>
-      <div className="sidebar__picture-wrapper pure-u-4-24">
+      <div className="sidebar__picture-wrapper pure-u-md-4-24">
         <img className="sidebar__picture" src={picture} />
       </div>
-      <div className="sidebar__content pure-u-20-24">
+      <div className="sidebar__content pure-u-md-20-24">
         <Header
           as="h1"
           className="sidebar__header"
