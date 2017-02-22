@@ -7,8 +7,6 @@ export default function UiDecorator(Component) {
   return (props) => {
     const {
       className,
-      padded = false,
-      centered = false,
       bullet = false,
       iconName,
       iconAppend = false,
@@ -17,8 +15,6 @@ export default function UiDecorator(Component) {
     } = props;
 
     let classes = classNames(className, {
-      'ui--padded': padded,
-      'ui--centered': centered,
       'ui--bullet': bullet,
     });
 

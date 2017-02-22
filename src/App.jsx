@@ -4,7 +4,7 @@ import 'purecss/build/grids-min.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/grids-units-min.css';
 
-import { List, Section, Possition } from './content';
+import { List, Section, JobPositions } from './content';
 import Sidebar from './sidebar/sidebar-component';
 import dataModel from '../data.json';
 
@@ -15,36 +15,26 @@ class App extends Component {
 
   render() {
     const {
-      hello,
-      professionalCapabilities,
-      professionalExpereince,
-      openSource,
-      freelance,
+      sidebar,
+      sections,
     } = this.state;
 
+    console.log(sections);
     return (
       <div className="container">
         <div className="pure-g">
           <Sidebar
             className="app__sidebar pure-u-md-3-8"
-            {...hello}
+            {...sidebar}
           />
           <div className="app__content pure-u-md-5-8">
-            <Section title={professionalCapabilities.title}>
-              <List items={professionalCapabilities.items} />
-            </Section>
-            {[
-              professionalExpereince,
-              openSource,
-              freelance,
-            ].map((section, index) => (
-              <Section
-                title={section.title}
-                key={index}
-                children={section.items.map((item, index) => (
-                  <Possition {...item} key={index}/>
-                ))}
-              />
+            {sections.map(section => (
+              <Section title={section.title}>
+                { section.list
+                  ? <List items={section.list} />
+                  : <JobPositions {...section} />
+                }
+              </Section>
             ))}
           </div>
         </div>

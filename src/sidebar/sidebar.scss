@@ -11,10 +11,6 @@
     max-height: 9rem;
     border-radius: 100%;
     margin: 0 auto 1rem;
-
-    @include screen-print {
-      margin-left: 0;
-    }
   }
 
   &__picture-wrapper {
