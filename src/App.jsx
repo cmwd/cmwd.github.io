@@ -6,20 +6,20 @@ import 'purecss/build/grids-units-min.css';
 
 import { List, Section, JobPositions } from './content';
 import Sidebar from './sidebar/sidebar-component';
-import dataModel from '../data.json';
 
 import './App.css';
 
 class App extends Component {
-  state = dataModel;
+  static defaultProps = {
+    sections: [],
+  };
 
   render() {
     const {
       sidebar,
       sections,
-    } = this.state;
+    } = this.props;
 
-    console.log(sections);
     return (
       <div className="container">
         <div className="pure-g">
@@ -28,8 +28,8 @@ class App extends Component {
             {...sidebar}
           />
           <div className="app__content pure-u-md-5-8">
-            {sections.map(section => (
-              <Section title={section.title}>
+            {sections.map((section, index) => (
+              <Section title={section.title} key={index}>
                 { section.list
                   ? <List items={section.list} />
                   : <JobPositions {...section} />

@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import Position from './job-position-component';
 

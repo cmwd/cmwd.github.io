@@ -1,8 +1,7 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import { Header, TextBlock, Link } from '../ui';
-import Highlighter from '../highlighter';
+import Highlighter from '../highlighter/highlighter-container';
 
 export default function Possition(props) {
   const {

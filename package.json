@@ -2,7 +2,6 @@
   "name": "cmwd.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cmwd.github.io/cmwd.github.io",
   "scripts": {
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",

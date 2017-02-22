@@ -2,7 +2,29 @@
   "sidebar": {
     "title": "Hello world, I'm Piotr",
     "picture": "https://placeholdit.imgix.net/~text?txtsize=33&txt=me&w=150&h=200",
-    "description": "I’m a web developer passionate about creating rich, scalable applications. I also love to learn new techs and helping others to learn awesome things."
+    "description": "I’m a web developer passionate about creating rich, scalable applications. I also love to learn new techs and helping others to learn awesome things.",
+    "links": [
+      {
+        "href": "mailto:pwojtkowiak@gmail.com",
+        "iconName": "envelope",
+        "print": "pwojtkowiak@gmail.com"
+      },
+      {
+        "href": "https://github.com/cmwd/",
+        "iconName": "github",
+        "print": "cmwd"
+      },
+      {
+        "href": "https://twitter.com/_cmwd/",
+        "iconName": "twitter",
+        "print": "@_cmwd"
+      },
+      {
+        "href": "https://www.linkedin.com/in/piotr-wojtkowiak-14397695/",
+        "iconName": "linkedin",
+        "print": "piotr-wojtkowiak-14397695"
+      }
+    ]
   },
   "sections": [
     {
@@ -59,39 +81,39 @@
         }
       ]
     }, {
-      "title": "Open Source",
-      "entries": [
-        {
-          "name": "Awesome Conferences",
-          "description": "todo",
-          "url": "https://github.com/cmwd/awesome-conferences-app",
-          "tags": ["Node", "React", "ES6", "Docker"]
-        },
-        {
-          "name": "Koduj dla Polski",
-          "end": "03-2016",
-          "start": "08-2015",
-          "description": "todo",
-          "url": "http://kodujdlapolski.pl/projects/wysadz-ulice/",
-          "tags": ["Backbone", "ES6", "Browserify", "Gulp", "Mocha", "Python"]
-        }
-      ]
+    "title": "Open Source",
+    "entries": [
+      {
+        "name": "Awesome Conferences",
+        "description": "todo",
+        "url": "https://github.com/cmwd/awesome-conferences-app",
+        "tags": ["Node", "React", "ES6", "Docker"]
+      },
+      {
+        "name": "Koduj dla Polski",
+        "end": "03-2016",
+        "start": "08-2015",
+        "description": "todo",
+        "url": "http://kodujdlapolski.pl/projects/wysadz-ulice/",
+        "tags": ["Backbone", "ES6", "Browserify", "Gulp", "Mocha", "Python"]
+      }
+    ]
     }, {
-      "title": "Freelance projects",
-      "entries": [
-        {
-          "name": "Koloremo",
-          "description": "todo",
-          "url": "http://koloremo.pl",
-          "tags": ["Wordpress", "Timber", "SASS", "ES6"]
-        },
-        {
-          "name": "Maja Sobura - Industrial Designer",
-          "description": "todo",
-          "url": "http://majasobura.com/",
-          "tags": ["Wordpress", "SASS"]
-        }
-      ]
+    "title": "Freelance projects",
+    "entries": [
+      {
+        "name": "Koloremo",
+        "description": "todo",
+        "url": "http://koloremo.pl",
+        "tags": ["Wordpress", "Timber", "SASS", "ES6"]
+      },
+      {
+        "name": "Maja Sobura - Industrial Designer",
+        "description": "todo",
+        "url": "http://majasobura.com/",
+        "tags": ["Wordpress", "SASS"]
+      }
+    ]
     }
   ]
 }

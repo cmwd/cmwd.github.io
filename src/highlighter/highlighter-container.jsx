@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 
 let subscribbers = [];
@@ -17,7 +17,7 @@ function unsubscribe(fn) {
   subscribbers = subscribbers.filter(f => f !== fn);
 }
 
-export default class Highighter extends Component {
+class Highighter extends Component {
   state = {
     highlight: false,
   };
@@ -57,4 +57,6 @@ export default class Highighter extends Component {
     });
   }
 }
+
+export default Highighter;
 
