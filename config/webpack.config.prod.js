@@ -7,7 +7,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-var ReactToStaticHtml = require('../lib/webpack-react-to-static-html');
+var StaticSiteGenerator = require('static-site-generator-webpack-plugin');
 
 
 
@@ -71,7 +71,8 @@ module.exports = {
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath
+    publicPath: publicPath,
+    libraryTarget: 'umd'
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -236,9 +237,29 @@ module.exports = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin(cssFilename),
-    new ReactToStaticHtml({
-      template: paths.appHtml,
-      selector: '#root'
+    new StaticSiteGenerator({
+      entry: 'static',
+      paths: ['static.html']
+    }),
+    new (class {
+      apply(compiler) {
+        compiler.plugin('this-compilation', (compilation) => {
+          compilation.plugin(
+            'html-webpack-plugin-before-html-processing',
+            (data, next) => {
+              const staticHtml = 'static.html';
+              const source = compilation.assets[staticHtml].source();
+
+              [...compilation.namedChunks.static.files, staticHtml]
+                .forEach(fileName => {
+                  delete compilation.assets[fileName];
+                });
+
+              data.html = data.html.replace('<!--render-here-->', source);
+              next(null, data);
+            });
+        });
+      }
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without

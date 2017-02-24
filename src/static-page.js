@@ -4,5 +4,7 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 import state from '../public/data.json';
 
-module.exports = renderToString(<App {...state} />);
+export default function render(locals) {
+  return renderToString(<App {...state} />);
+};
 
