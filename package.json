@@ -2,7 +2,6 @@
   "name": "cmwd.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cmwd.github.io/cmwd.github.io",
   "scripts": {
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
@@ -58,7 +57,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "date-fns": "^1.27.2",
     "gh-pages": "^0.12.0",
+    "lodash": "^4.17.4",
+    "meta-marked": "^0.4.2",
     "node-sass": "^4.5.0",
     "purecss": "^0.6.2",
     "react": "^15.4.2",

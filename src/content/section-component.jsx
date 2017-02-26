@@ -10,10 +10,7 @@ export default function Section(props) {
         children={props.title}
         type="section"
       />
-      <TextBlock
-        as="div"
-        children={props.children}
-      />
+      {props.children}
     </section>
   );
 }

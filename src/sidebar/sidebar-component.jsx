@@ -10,8 +10,8 @@ export default function SidebarComponent(props) {
     className,
     title,
     picture,
-    description,
     links,
+    content,
   } = props;
 
   return (
@@ -26,10 +26,10 @@ export default function SidebarComponent(props) {
           type="main"
           children={title}
         />
-        <TextBlock
-          className="sidebar__introduction"
-          children={description}
-        />
+      <TextBlock
+        className="sidebar__introduction"
+        children={content.html}
+      />
       </div>
       <div
         className="sidebar__links"

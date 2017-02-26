@@ -1,0 +1,13 @@
+---
+layout: position
+category: "Freelance projects"
+companyName: "Koloremo"
+order: 3
+url: "http://koloremo.pl"
+tags:
+  - "Wordpress"
+  - "Timber"
+  - "SASS"
+  - "ES6"
+---
+My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in backend and client-side.

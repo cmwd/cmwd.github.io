@@ -1,16 +1,16 @@
 @import '../variables.scss';
 
 .sidebar {
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 
   &__picture {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 9rem;
-    max-height: 9rem;
+    max-width: 9em;
+    max-height: 9em;
     border-radius: 100%;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1em;
   }
 
   &__picture-wrapper {
@@ -20,6 +20,8 @@
   }
 
   &__header {
+    text-align: center;
+
     @include screen-print {
       text-align: left;
       padding: 0;
@@ -28,7 +30,7 @@
 
   &__content {
     @include screen-print {
-      padding: 0 1rem;
+      padding: 0 1em;
     }
 
     @include screen-not-print {
@@ -37,7 +39,7 @@
   }
 
   &__introduction {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 
     @include screen-print {
       text-align: left;
@@ -47,17 +49,22 @@
 
   &__links {
     text-align: center;
+
+    @include screen-md {
+      top: 1em;
+      position: sticky;
+    }
   }
 
   &__link {
-    padding: 0 0.1rem;
-    margin: 0 0.2rem;
+    padding: 0 0.1em;
+    margin: 0 0.2em;
 
     @include screen-print {
       text-align: left;
-      line-height: 1.5rem;
+      line-height: 1.5em;
       padding: 0;
-      margin: 0 1rem 0 0;
+      margin: 0 1em 0 0;
     }
   }
 }

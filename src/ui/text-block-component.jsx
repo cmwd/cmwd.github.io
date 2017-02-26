@@ -5,9 +5,11 @@ import UiDecorator from './ui-decorator-component';
 
 function TextBlock(props) {
   const {
-    as: ElementType = 'span',
+    as: ElementType = 'div',
     className,
     secondary = false,
+    plain = false,
+    children,
     ...rest
   } = props;
 
@@ -19,8 +21,22 @@ function TextBlock(props) {
       'ui__text-block--secondary': secondary,
     });
 
+  const content = {};
+
+  if (plain) {
+    Object.assign(content, { children });
+  } else {
+    Object.assign(content, {
+      dangerouslySetInnerHTML: { __html: children.join('') },
+    });
+  }
+
   return (
-    <ElementType className={classes} {...rest} />
+    <ElementType
+      className={classes}
+      {...rest}
+      {...content}
+    />
   );
 }
 

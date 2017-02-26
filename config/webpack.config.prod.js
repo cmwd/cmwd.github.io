@@ -8,8 +8,10 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var StaticSiteGenerator = require('static-site-generator-webpack-plugin');
+var data = require('./data');
+var RawSource = require('webpack-sources/lib/RawSource');
 
-
+const appData = data(paths.appDataDir);
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -239,9 +241,12 @@ module.exports = {
     new ExtractTextPlugin(cssFilename),
     new StaticSiteGenerator({
       entry: 'static',
-      paths: ['static.html']
+      paths: ['static.html'],
+      locals: {
+        initialState: appData,
+      }
     }),
-    new (class {
+    {
       apply(compiler) {
         compiler.plugin('this-compilation', (compilation) => {
           compilation.plugin(
@@ -260,7 +265,15 @@ module.exports = {
             });
         });
       }
-    }),
+    },
+    {
+      apply(compiler) {
+        compiler.plugin('this-compilation', (compilation) => {
+          compilation.assets['data.json'] = new RawSource(
+            JSON.stringify(appData));
+        });
+      }
+    },
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.

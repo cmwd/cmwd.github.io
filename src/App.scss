@@ -10,11 +10,11 @@ body * {
 
 .container {
   max-width: 960px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin: 3em auto;
+  padding: 0 1em;
 
   @include screen-sm {
-    padding: 0 3rem;
+    padding: 0 3em;
   }
 }
 

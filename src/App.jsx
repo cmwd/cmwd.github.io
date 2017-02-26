@@ -4,36 +4,70 @@ import 'purecss/build/grids-min.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/grids-units-min.css';
 
-import { List, Section, JobPositions } from './content';
+import { List, Section, Position } from './content';
 import Sidebar from './sidebar/sidebar-component';
 
 import './App.css';
 
+const layouts = {
+  list: List,
+  position: Position,
+};
+
+function getCategoryItems(files, categoryId) {
+  return files.reduce((memo, file) => {
+    if (file.categoryId !== categoryId) { return memo }
+
+    let component = layouts[file.layout] || Section;
+
+    return [...memo, {file, component}];
+  }, []);
+}
+
 class App extends Component {
   static defaultProps = {
-    sections: [],
+    files: [],
+    categories: [],
   };
+
+  constructor(props) {
+    super(props);
+    this.state = props;
+  }
+
+  componentDidMount() {
+    fetch(`${process.env.PUBLIC_URL}/data.json`)
+      .then(response => response.json())
+      .then(state => this.setState(state));
+  }
 
   render() {
     const {
-      sidebar,
-      sections,
-    } = this.props;
+      categories,
+      files,
+    } = this.state;
+    const sidebar = files.find(file => file.layout === 'sidebar');
 
     return (
       <div className="container">
         <div className="pure-g">
-          <Sidebar
-            className="app__sidebar pure-u-md-3-8"
-            {...sidebar}
-          />
+          {!sidebar ? null :
+            <Sidebar
+              className="app__sidebar pure-u-md-3-8"
+              {...sidebar}
+            />
+          }
           <div className="app__content pure-u-md-5-8">
-            {sections.map((section, index) => (
-              <Section title={section.title} key={index}>
-                { section.list
-                  ? <List items={section.list} />
-                  : <JobPositions {...section} />
-                }
+            {categories.map(category => (
+              <Section title={category.name} key={category.categoryId}>
+                {getCategoryItems(files, category.categoryId).map((item) => {
+                  const {
+                    file,
+                    component: Component,
+                  } = item;
+
+                  return (<Component {...file} key={file.fileName} />);
+                })}
               </Section>
             ))}
           </div>
