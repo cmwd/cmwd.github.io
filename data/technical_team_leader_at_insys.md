@@ -13,4 +13,4 @@ tags:
   - "Architecture"
   - "Research"
 ---
-lose cooperations on projects with design and back-end teams, responsibility for product delivery ensuring it’s delivered at the highest standard. Exploring and choosing right client-side technologies.
+Close cooperations on projects with design and back-end teams, responsibility for product delivery ensuring it’s delivered at the highest standard. Exploring and choosing right client-side technologies.
