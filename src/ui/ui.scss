@@ -1,0 +1,87 @@
+@import '../variables.scss';
+
+%ui-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: initial;
+}
+
+%ui-header {
+  color: $base03;
+  margin: 0 0 1em;
+}
+
+@for $i from 1 through 6 {
+  h#{$i}{
+    @extend %ui-text;
+    @extend %ui-header;
+  }
+}
+
+p {
+  @extend %ui-text;
+}
+
+h1 {
+  font-size: 1.6em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+.ui {
+  &--text {
+    @extend %ui-text;
+  }
+
+  &--bullet {
+    position: relative;
+    margin-left: 1em;
+
+    @include screen-md {
+      margin-left: 0;
+    }
+
+    &:before {
+      content: '•';
+      color: $base002;
+      position: absolute;
+      left: -1em;
+      font-size: 1.2em;
+    }
+  }
+
+  &__text-block {
+    font-size: 1em;
+    line-height: 1.5em;
+    color: $base03;
+    display: block;
+
+    &--secondary {
+      font-size: 0.8em;
+    }
+  }
+
+  &__link {
+    @extend %ui-text;
+    text-decoration: none;
+    color: $base00;
+
+    &:hover {
+      color: $base002;
+    }
+
+    &--print:after {
+      @include screen-print {
+        content: attr(data-print);
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
+

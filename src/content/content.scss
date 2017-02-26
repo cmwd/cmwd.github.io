@@ -1,0 +1,91 @@
+@import '../variables.scss';
+
+.content {
+  &__section {
+    margin-bottom: 2em;
+
+    @include screen-print {
+      padding: 0 1em;
+    }
+
+    @include screen-md {
+      padding-left: 3em;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__possition {
+    margin-bottom: 2em;
+
+    &:hover .ui__icon {
+      visibility: visible;
+    }
+
+    &:hover &-link {
+      color: $base00;
+    }
+
+    &:hover &-link:hover {
+      color: $base002;
+    }
+  }
+
+  &__possition-title {
+    margin: 0;
+  }
+
+  &__possition-details {
+    color: $base00;
+    margin-bottom: 1em;
+  }
+
+  &__possition-description {
+    margin-bottom: .3em;
+  }
+
+  &__possition-link {
+    color: $base02;
+
+    .ui__icon {
+      font-size: 0.8em;
+      margin-left: 0.4em;
+      visibility: hidden;
+    }
+  }
+
+  &__possition-tagline {
+    color: $base001;
+
+    @include screen-print {
+      color: $base00;
+    }
+  }
+
+  &__possition-tag {
+    margin-right: 0.3em;
+    cursor: default;
+    display: inline-block;
+
+    &--highlight {
+      color: $base002;
+    }
+
+    &:before {
+      content: '#';
+      padding-right: 0.1em;
+    }
+
+    &:after {
+      content: ',';
+    }
+
+    &:last-child::after {
+      content: '';
+    }
+  }
+}
+
