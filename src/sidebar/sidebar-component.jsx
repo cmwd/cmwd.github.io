@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Header, TextBlock, Link } from '../ui';
+import { Header, TextBlock } from '../ui';
+import SidebarLink from './sidebar-link-component';
 
 import './sidebar.css';
 
@@ -26,21 +27,16 @@ export default function SidebarComponent(props) {
           type="main"
           children={title}
         />
-      <TextBlock
-        className="sidebar__introduction"
-        children={content.html}
-      />
+        <TextBlock
+          className="sidebar__introduction"
+          children={content.html}
+        />
       </div>
       <div
         className="sidebar__links"
-        children={links.map(link =>
-          <Link
-            {...link}
-            className="sidebar__link"
-            key={link.iconName}
-          />)}
-        />
-      </div>
+        children={links.map((link) => <SidebarLink {...link} />)}
+      />
+    </div>
   );
 }
 

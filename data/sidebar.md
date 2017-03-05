@@ -15,6 +15,9 @@
     - href: "https://www.linkedin.com/in/piotr-wojtkowiak-14397695/"
       iconName: "linkedin"
       print: "piotr-wojtkowiak-14397695"
+    - href: ""
+      iconName: "print"
+      action: "print"
 ---
 
 I'm a web developer specialized in JavaScript and rich client-side applications. Focused on finding the best solution for a given problem. I'm passionate about new technologies and always eager to help others.
