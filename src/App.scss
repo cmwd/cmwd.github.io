@@ -26,4 +26,12 @@ body * {
   .app__content {
     width: 100%;
   }
+
+  html,body {
+    height: 99%;
+  }
+
+  .pure-g {
+    display: block;
+  }
 }

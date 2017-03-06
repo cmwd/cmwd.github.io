@@ -4,6 +4,7 @@ category: "Freelance projects"
 companyName: "Maja Sobura - Industrial Designer"
 order: 3
 url: "http://majasobura.com/"
+breakAfter: true
 tags:
   - "Wordpress"
   - "SASS"

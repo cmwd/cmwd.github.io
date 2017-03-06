@@ -1,11 +1,16 @@
 @import '../variables.scss';
 
+%content-spacing {
+  padding: 0 0 2em;
+}
+
 .content {
   &__section {
     margin-bottom: 2em;
 
     @include screen-print {
       padding: 0 1em;
+      margin: 0;
     }
 
     @include screen-md {
@@ -14,16 +19,13 @@
   }
 
   &__list {
-    padding: 0;
+    @extend %content-spacing;
+
     margin: 0;
   }
 
   &__possition {
-    @include screen-print {
-      page-break-inside: avoid;
-    }
-
-    margin-bottom: 2em;
+    @extend %content-spacing;
 
     &:hover .ui__icon {
       visibility: visible;
@@ -36,6 +38,17 @@
     &:hover &-link:hover {
       color: $base002;
     }
+  }
+
+  &__page-break {
+    @include screen-print {
+      page-break-after: right;
+    }
+
+    height: 0;
+    padding: 0;
+    margin: 0;
+
   }
 
   &__possition-title {

@@ -6,6 +6,9 @@ import Highlighter from '../highlighter/highlighter-container';
 
 const DATE_FORMAT = 'MM-YYYY';
 
+const PageBreak = () =>
+  (<div className="content__page-break" />);
+
 export default function Position(props) {
   const {
     position,
@@ -17,6 +20,7 @@ export default function Position(props) {
     current,
     url,
     tags: tagsRaw,
+    breakAfter = false,
   } = props;
   const tags = tagsRaw.map(tag => tag.toLowerCase());
   const endDate = current ? 'present' : format(end, DATE_FORMAT);
@@ -82,6 +86,7 @@ export default function Position(props) {
           ))}
         />
       ))}</Highlighter>
+    {!breakAfter ? null : <PageBreak />}
     </article>
   );
 }
