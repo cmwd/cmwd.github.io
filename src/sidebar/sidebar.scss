@@ -2,7 +2,10 @@
 
 .sidebar {
   margin-bottom: 2em;
-  padding: 0 1em;
+
+  @include screen-print {
+    padding: 0 1em;
+  }
 
   &__picture {
     display: block;
