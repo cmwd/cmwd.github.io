@@ -8,7 +8,6 @@ start: "06-01-2015"
 end: "03-01-2016"
 order: 1
 url: "http://www.insys.pl/"
-breakAfter: true
 tags:
   - "Team-Lead"
   - "Architecture"

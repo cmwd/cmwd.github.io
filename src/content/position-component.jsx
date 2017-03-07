@@ -6,9 +6,6 @@ import Highlighter from '../highlighter/highlighter-container';
 
 const DATE_FORMAT = 'MM-YYYY';
 
-const PageBreak = () =>
-  (<div className="content__page-break" />);
-
 export default function Position(props) {
   const {
     position,
@@ -20,7 +17,6 @@ export default function Position(props) {
     current,
     url,
     tags: tagsRaw,
-    breakAfter = false,
   } = props;
   const tags = tagsRaw.map(tag => tag.toLowerCase());
   const endDate = current ? 'present' : format(end, DATE_FORMAT);
@@ -30,7 +26,7 @@ export default function Position(props) {
   ].join('');
   const company = url
     ? <Link
-      className="content__possition-link"
+      className="content__position-link"
       href={url}
       children={companyName}
       iconName="external-link"
@@ -39,21 +35,21 @@ export default function Position(props) {
     : companyName;
 
   return (
-    <article className="content__possition">
+    <article className="content__position">
       <header>
         <Header
-          className="content__possition-title"
+          className="content__position-title"
           as="h3"
           type="subsection"
         >
-          {position ? `${position} at ` : position}
-          {company}
+          {position}
+          <span className="content__position-company-name">at {company}</span>
         </Header>
         { !details.length ? null :
             <TextBlock
               secondary
               plain
-              className="content__possition-details"
+              className="content__position-details"
               as="span"
               children={details}
             />
@@ -61,7 +57,7 @@ export default function Position(props) {
       </header>
       <TextBlock
         as="div"
-        className="content__possition-description"
+        className="content__position-description"
         children={content.html}
       />
       <Highlighter stack={tags}>{(({ mutateClass, set, cancel }) => (
@@ -69,14 +65,14 @@ export default function Position(props) {
           secondary
           plain
           as="div"
-          className="content__possition-tagline"
+          className="content__position-tagline"
           onMouseLeave={cancel}
           children={tags.map(tag => (
             <span
               className={mutateClass(
                 tag,
-                'content__possition-tag',
-                'content__possition-tag--highlight'
+                'content__position-tag',
+                'content__position-tag--highlight'
               )}
               key={tag}
               data-tag={tag}
@@ -86,7 +82,6 @@ export default function Position(props) {
           ))}
         />
       ))}</Highlighter>
-    {!breakAfter ? null : <PageBreak />}
     </article>
   );
 }

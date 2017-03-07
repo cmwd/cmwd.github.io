@@ -4,6 +4,26 @@
   padding: 0 0 2em;
 }
 
+%prevent-breaking-inside {
+  @include screen-print {
+    page-break-inside: avoid;
+  }
+}
+
+@mixin inline-text {
+  display: inline;
+
+  &:before {
+    content: '\00a0';
+  }
+}
+
+@mixin link-indicator($show: true) {
+  .ui__icon {
+    visibility: if($show, visible, hidden);
+  }
+}
+
 .content {
   &__section {
     margin-bottom: 2em;
@@ -20,61 +40,56 @@
 
   &__list {
     @extend %content-spacing;
+    @extend %prevent-breaking-inside;
 
     margin: 0;
   }
 
-  &__possition {
+  &__position {
     @extend %content-spacing;
+    @extend %prevent-breaking-inside;
+    @include link-indicator;
 
-    &:hover .ui__icon {
-      visibility: visible;
+    &:hover {
+      @include link-indicator;
+
+      &-link:hover {
+        color: $base002;
+      }
     }
 
-    &:hover &-link {
-      color: $base00;
-    }
-
-    &:hover &-link:hover {
-      color: $base002;
+    @include screen-md {
+      @include link-indicator(false);
     }
   }
 
-  &__page-break {
-    @include screen-print {
-      page-break-after: right;
-    }
-
-    height: 0;
-    padding: 0;
-    margin: 0;
-
-  }
-
-  &__possition-title {
+  &__position-title {
     margin: 0;
   }
 
-  &__possition-details {
+  &__position-details {
     color: $base00;
     margin-bottom: 1em;
   }
 
-  &__possition-description {
+  &__position-description {
     margin-bottom: .3em;
   }
 
-  &__possition-link {
+  &__position-link {
     color: $base02;
 
     .ui__icon {
       font-size: 0.8em;
       margin-left: 0.4em;
-      visibility: hidden;
+
+      @include screen-print {
+        display: none;
+      }
     }
   }
 
-  &__possition-tagline {
+  &__position-tagline {
     color: $base001;
 
     @include screen-print {
@@ -82,7 +97,7 @@
     }
   }
 
-  &__possition-tag {
+  &__position-tag {
     margin-right: 0.3em;
     cursor: default;
     display: inline-block;
@@ -102,6 +117,18 @@
 
     &:last-child::after {
       content: '';
+    }
+  }
+
+  &__position-company-name {
+    display: block;
+
+    @include screen-md {
+      @include inline-text;
+    }
+
+    @include screen-print {
+      @include inline-text;
     }
   }
 }
