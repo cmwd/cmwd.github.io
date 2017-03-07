@@ -22,7 +22,7 @@
       action: "print"
 ---
 
-I'm a web developer specialized in JavaScript and rich client-side applications. Focused on finding the best solution for a given problem. I'm passionate about new technologies and always eager to help others.
+I am a web developer specialized in JavaScript and rich client-side applications. Focused on finding the best solution for a given problem. I'm passionate about new technologies and always eager to help others.
 
 Away from the screen, I like to spin some records, learn something new or try this new craft beer.
 
