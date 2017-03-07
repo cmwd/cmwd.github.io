@@ -10,4 +10,4 @@ tags:
   - "SASS"
   - "ES6"
 ---
-My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in backend and client-side.
+My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in back-end and client side.
