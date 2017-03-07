@@ -15,6 +15,8 @@
     - href: "https://www.linkedin.com/in/piotr-wojtkowiak-14397695/"
       iconName: "linkedin"
       print: "piotr-wojtkowiak-14397695"
+    - href: "https://github.com/cmwd/cmwd.github.io"
+      iconName: "code-fork"
     - href: ""
       iconName: "print"
       action: "print"
