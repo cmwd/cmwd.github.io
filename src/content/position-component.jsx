@@ -43,7 +43,9 @@ export default function Position(props) {
           type="subsection"
         >
           {position}
-          <span className="content__position-company-name">at {company}</span>
+          {!position ? company :
+            <span className="content__position-company-name">at {company}</span>
+          }
         </Header>
         { !details.length ? null :
             <TextBlock
