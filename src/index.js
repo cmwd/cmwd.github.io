@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-function render(state) {
+function renderApp(state) {
   ReactDOM.render(
     <App {...state} />,
     document.getElementById('root')
@@ -12,5 +12,5 @@ function render(state) {
 
 fetch(`${process.env.PUBLIC_URL}/data.json`)
   .then(response => response.json())
-  .then(render);
+  .then(state => renderApp(state));
 

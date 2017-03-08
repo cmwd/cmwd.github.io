@@ -20,6 +20,7 @@
 
 p {
   @extend %ui-text;
+  margin-bottom: 0;
 }
 
 h1 {
@@ -48,6 +49,10 @@ h3 {
     }
 
     &:before {
+      @include screen-print {
+        color: $base02;
+      }
+
       content: '•';
       color: $base002;
       position: absolute;

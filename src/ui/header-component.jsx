@@ -9,13 +9,14 @@ function Header(props) {
     type,
     className,
     children,
+    ...rest
   } = props;
 
   const classes = classNames(
     className, 'ui--text', 'ui__header', `ui__header--${type}`);
 
   return (
-    <ElementType className={classes} children={children} />
+    <ElementType className={classes} children={children} {...rest} />
   );
 }
 

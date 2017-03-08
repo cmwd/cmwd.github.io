@@ -10,6 +10,7 @@ export default function SidebarComponent(props) {
   const {
     className,
     title,
+    printTitle,
     picture,
     links,
     content,
@@ -25,6 +26,7 @@ export default function SidebarComponent(props) {
           as="h1"
           className="sidebar__header"
           type="main"
+          data-print-content={printTitle}
           children={title}
         />
         <TextBlock

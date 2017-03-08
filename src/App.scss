@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-body {
+html,body {
   background: $base3;
 }
 
@@ -32,10 +32,18 @@ body * {
   }
 
   html,body {
-    height: 99%;
+    -webkit-print-color-adjust: exact;
+    background-color: #fff !important;
+    margin: 0 !important;
+    height: 100% !important;
   }
 
   .pure-g {
     display: block;
   }
 }
+
+@page {
+  margin: 2cm 2.3cm;
+}
+
