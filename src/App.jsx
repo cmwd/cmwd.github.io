@@ -35,12 +35,6 @@ class App extends Component {
     this.state = props;
   }
 
-  componentDidMount() {
-    fetch(`${process.env.PUBLIC_URL}/data.json`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
-
   render() {
     const {
       categories,
