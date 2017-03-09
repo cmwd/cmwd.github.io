@@ -21,7 +21,7 @@
       iconName: "linkedin"
     - href: "https://github.com/cmwd/cmwd.github.io"
       iconName: "code-fork"
-    - href: "/Piotr_Wojtkowiak.cv"
+    - href: "https://github.com/cmwd/cmwd.github.io/raw/master/Piotr_Wojtkowiak.pdf"
       iconName: "file-pdf-o"
 ---
 

@@ -2,14 +2,14 @@
   "name": "cmwd.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "cmwd.github.io",
+  "homepage": "https://cmwd.github.io",
   "scripts": {
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start": "node scripts/start.js",
     "build": "npm run build-css && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && node scripts/generate-pdf.js",
     "deploy": "gh-pages -b master -d build"
   },
   "devDependencies": {
