@@ -14,14 +14,15 @@ export default function Position(props) {
     content,
     start,
     end,
+    dateFormat = DATE_FORMAT,
     current,
     url,
     tags: tagsRaw,
   } = props;
   const tags = tagsRaw.map(tag => tag.toLowerCase());
-  const endDate = current ? 'present' : format(end, DATE_FORMAT);
+  const endDate = current ? 'present' : format(end, dateFormat);
   const details = [
-    start ? `${endDate} - ${format(start, DATE_FORMAT)}` : '',
+    start ? `${endDate} - ${format(start, dateFormat)}` : '',
     location ? ` / ${location}` : '',
   ].join('');
   const company = url

@@ -43,15 +43,17 @@ module.exports = function(dataDir) {
       const {
         categoryId,
         category,
+        modifier,
         order = 0,
       } = file;
 
       if (categoryId) {
-        categories[categoryId] = {
+        categories[categoryId] = Object.assign({}, categories[categoryId], {
           categoryId,
           name: category,
           order: order,
-        };
+          modifier,
+        });
       }
 
       return file;

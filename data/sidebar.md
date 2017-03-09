@@ -21,9 +21,8 @@
       iconName: "linkedin"
     - href: "https://github.com/cmwd/cmwd.github.io"
       iconName: "code-fork"
-    - href: ""
-      iconName: "print"
-      action: "print"
+    - href: "/Piotr_Wojtkowiak.cv"
+      iconName: "file-pdf-o"
 ---
 
 I am a web developer specialized in JavaScript and rich client-side applications. Focused on finding the best solution for a given problem. I'm passionate about new technologies and always eager to help others.

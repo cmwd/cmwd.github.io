@@ -53,7 +53,11 @@ class App extends Component {
           }
           <div className="app__content pure-u-md-5-8">
             {categories.map(category => (
-              <Section title={category.name} key={category.categoryId}>
+              <Section
+                title={category.name}
+                modifier={category.modifier}
+                key={category.categoryId}
+              >
                 {getCategoryItems(files, category.categoryId).map((item) => {
                   const {
                     file,

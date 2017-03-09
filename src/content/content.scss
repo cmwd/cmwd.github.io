@@ -2,6 +2,10 @@
 
 %content-spacing {
   padding: 0 0 2em;
+
+  @include screen-print {
+    padding: 0 0 1em;
+  }
 }
 
 %prevent-breaking-inside {
@@ -28,9 +32,21 @@
   &__section {
     margin-bottom: 2em;
 
+    &--print-show {
+      display: none;
+    }
+
     @include screen-print {
       padding: 0 1em;
       margin: 0;
+
+      &--print-hidden {
+        display: none;
+      }
+
+      &--print-show {
+        display: block;
+      }
     }
 
     @include screen-md {
@@ -93,7 +109,7 @@
     color: $base001;
 
     @include screen-print {
-      color: $base00;
+      display: none;
     }
   }
 

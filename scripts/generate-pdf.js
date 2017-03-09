@@ -11,7 +11,7 @@ const options = {
     top: '1cm',
   },
   footer: {
-    height: '1.5cm',
+    height: '2cm',
     contents: {
       last: `
         <div class="container">
@@ -24,7 +24,7 @@ const options = {
   }
 };
 const entryPoint = path.resolve(paths.appBuild, 'index.html');
-const output = path.resolve(paths.appBuild, 'cv.pdf');
+const output = path.resolve(paths.appBuild, data.pdfName + '.pdf');
 const html = fs.readFileSync(entryPoint, 'utf-8');
 
 pdf.create(html, options).toFile(output, (err, res) => {
