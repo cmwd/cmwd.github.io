@@ -5,6 +5,10 @@ import { Header, TextBlock, Link } from '../ui';
 import Highlighter from '../highlighter/highlighter-container';
 
 const DATE_FORMAT = 'MM-YYYY';
+const SLUG_REGEX = /[\s\.]/g;
+
+const toSlug = (string) =>
+  string.replace(SLUG_REGEX, '_').toLowerCase();
 
 export default function Position(props) {
   const {
@@ -32,6 +36,7 @@ export default function Position(props) {
       children={companyName}
       iconName="external-link"
       iconAppend
+      gaLabel={toSlug(companyName)}
     />
     : companyName;
 

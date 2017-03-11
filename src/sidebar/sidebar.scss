@@ -85,6 +85,12 @@
         display: none;
       }
     }
+
+    &--web-hidden {
+      @include screen-web {
+        display: none;
+      }
+    }
   }
 }
 

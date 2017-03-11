@@ -21,17 +21,21 @@ export default class SidebarLinkComponent extends Component {
     const {
       action,
       print = false,
+      web = true,
       iconName,
+      ...props
     } = this.props;
 
     const clickHandler = this.actions[action] || null;
     const classes = classNames('sidebar__link', {
       'sidebar__link--print-hidden': !print,
+      'sidebar__link--web-hidden': !web
     });
 
     return (
       <Link
-        {...this.props}
+        {...props}
+        iconName={iconName}
         onClick={clickHandler}
         className={classes}
         key={this.props.iconName}

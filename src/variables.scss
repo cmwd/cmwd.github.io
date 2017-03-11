@@ -25,7 +25,6 @@ $break-point-sm: 35.5em;
   }
 }
 
-
 @mixin screen-sm {
   @media screen and (min-width: $break-point-sm) {
     @content;
@@ -33,11 +32,17 @@ $break-point-sm: 35.5em;
 }
 
 @mixin screen-print {
-  @media print {
-    @at-root {
-      @media print {
-        & { @content; }
-      }
+  @at-root {
+    @media print {
+      & { @content; }
+    }
+  }
+}
+
+@mixin screen-web {
+  @at-root {
+    @media screen {
+      & { @content; }
     }
   }
 }

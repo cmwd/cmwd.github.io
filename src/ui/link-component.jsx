@@ -2,21 +2,22 @@ import React from 'react';
 import classNames from 'classnames';
 
 import UiDecorator from './ui-decorator-component';
+import GAEvent from '../misc/GAEvent';
 
 function Link(props) {
   const {
     as: ElementType = 'a',
     className,
     target = '_blank',
-    print,
+    description = '',
     ...rest
   } = props;
 
   const attributes = {
-    'data-print': print,
+    'data-description': description,
   };
   const classes = classNames(className, 'ui__link', {
-    'ui__link--print': !!print,
+    'ui__link--description': !!description,
   });
 
   return (
@@ -29,4 +30,4 @@ function Link(props) {
   );
 }
 
-export default UiDecorator(Link);
+export default UiDecorator(GAEvent(Link, "link"));

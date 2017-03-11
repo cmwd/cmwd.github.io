@@ -1,6 +1,7 @@
 ---
 layout: position
 category: "Summary"
+modifier: "print-show"
 order: 4
 ---
 

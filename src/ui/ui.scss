@@ -85,9 +85,9 @@ h3 {
       color: $base002;
     }
 
-    &--print:after {
+    &--description:after {
       @include screen-print {
-        content: attr(data-print);
+        content: attr(data-description);
         margin-left: 0.5em;
       }
     }
