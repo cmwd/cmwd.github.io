@@ -5,32 +5,36 @@ import ReactGA from 'react-ga';
  * @TODO move to env variable
  */
 const GA_ID = 'UA-72751097-1';
+const SEND_METRICS = process.env.NODE_ENV === 'production';
 
-ReactGA.initialize(GA_ID, {
-  debug: process.env.NODE_ENV !== 'production',
-});
+if (typeof window !== "undefined") {
+  ReactGA.initialize(GA_ID);
+  ReactGA.set({ page: window.location.pathname });
+}
 
-ReactGA.set({ page: window.location.pathname });
-
-class GAEvent extends Component {
+class AnalyticsComponent extends Component {
   constructor(props) {
     super(props);
     this.clickHandler = this.clickHandler.bind(this);
-    this.mouseOver = this.mouseOver.bind(this);
   }
 
-  clickHandler() {
+  sendEvent(props) {
+    if (SEND_METRICS) {
+      ReactGA.event(props);
+    } else {
+      console.info(props);
+    }
+  }
+
+  clickHandler(event) {
     const { gaCategory: category, gaLabel: label } = this.props;
     const action = 'Click';
 
-    ReactGA.event({ category, action, label });
-  }
+    this.sendEvent({ category, action, label });
 
-  mouseOver() {
-    const { gaCategory: category, gaLabel: label } = this.props;
-    const action = 'MouseOver';
-
-    ReactGA.event({ category, action, label });
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
   }
 
   render() {
@@ -45,7 +49,6 @@ class GAEvent extends Component {
       <ChildComponent
         {...rest}
         onClick={this.clickHandler}
-        onMouseOver={this.mouseOver}
       />
     );
   }
@@ -53,9 +56,10 @@ class GAEvent extends Component {
 
 export default (childComponent, category) =>
   (props) => (
-    <GAEvent
+    <AnalyticsComponent
       component={childComponent}
       gaCategory={category}
       {...props}
     />
-  )
+  );
+

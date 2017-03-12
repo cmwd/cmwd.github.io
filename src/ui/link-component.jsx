@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import UiDecorator from './ui-decorator-component';
-import GAEvent from '../misc/GAEvent';
+import Analytics from '../misc/analytics-component';
 
 function Link(props) {
   const {
@@ -30,4 +30,4 @@ function Link(props) {
   );
 }
 
-export default UiDecorator(GAEvent(Link, "link"));
+export default UiDecorator(Analytics(Link, "link"));

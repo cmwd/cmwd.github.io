@@ -3,12 +3,26 @@ import { format } from 'date-fns';
 
 import { Header, TextBlock, Link } from '../ui';
 import Highlighter from '../highlighter/highlighter-container';
+import Analytics from '../misc/analytics-component';
 
 const DATE_FORMAT = 'MM-YYYY';
 const SLUG_REGEX = /[\s\.]/g;
 
 const toSlug = (string) =>
   string.replace(SLUG_REGEX, '_').toLowerCase();
+
+const Hashtag = Analytics(({ tag, mutateClass, set, ...rest }) => (
+  <span
+    {...rest}
+    className={
+      mutateClass(
+        tag,
+        'content__position-tag',
+        'content__position-tag--highlight')}
+    onMouseEnter={(event) => set(tag)}
+    children={tag}
+  />
+), 'Hashtag');
 
 export default function Position(props) {
   const {
@@ -76,16 +90,12 @@ export default function Position(props) {
           className="content__position-tagline"
           onMouseLeave={cancel}
           children={tags.map(tag => (
-            <span
-              className={mutateClass(
-                tag,
-                'content__position-tag',
-                'content__position-tag--highlight'
-              )}
+            <Hashtag
+              gaLabel={tag}
+              mutateClass={mutateClass}
+              set={set}
+              tag={tag}
               key={tag}
-              data-tag={tag}
-              onMouseEnter={(event) => set(event.target.dataset.tag)}
-              children={tag}
             />
           ))}
         />
