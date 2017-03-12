@@ -1,5 +1,5 @@
 This project is created with help of an awesome
-(https://github.com/facebookincubator/create-react-app)[create-react-app].
+([create-react-app]https://github.com/facebookincubator/create-react-app).
 
 It has been "ejected" in order to add following features:
   * static site generator
