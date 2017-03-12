@@ -2,7 +2,7 @@
   layout: sidebar
   title: "Hello world, I am Piotr"
   printTitle: "Piotr Wojtkowiak"
-  picture: "https://www.gravatar.com/avatar/3c19aa8d4482ab802f48d73d41318637?s=80"
+  picture: "https://www.gravatar.com/avatar/3c19aa8d4482ab802f48d73d41318637?s=300"
   links:
     - href: "mailto:pwojtkowiak@gmail.com"
       iconName: "envelope"
@@ -15,6 +15,12 @@
       print: true
       web: false
       gaLabel: "phone"
+    - href: ""
+      iconName: "map-marker"
+      description: "Poznań, Poland"
+      web: false
+      print: true
+      gaLabel: "location"
     - href: ""
       iconName: "anchor"
       description: "https://cmwd.github.io/"
