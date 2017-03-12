@@ -7,9 +7,9 @@
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start": "node scripts/start.js",
-    "build": "npm run build-css && node scripts/build.js",
+    "build": "npm run build-css && node scripts/build.js && node scripts/generate-pdf.js",
     "test": "node scripts/test.js --env=jsdom",
-    "predeploy": "npm run build && node scripts/generate-pdf.js",
+    "predeploy": "npm run build ",
     "deploy": "git push origin :master && gh-pages -b master -d build"
   },
   "devDependencies": {

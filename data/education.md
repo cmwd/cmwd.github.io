@@ -8,5 +8,5 @@ end: "2007"
 dateFormat: "YYYY"
 order: 5
 ---
-Liceum Ogolnoksztalcace Im. Ziemi Gostynskiej w Gostyniu.
+Liceum Ogólnokształcące Im. Ziemi Gostyńskiej w Gostyniu.
 
