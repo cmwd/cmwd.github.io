@@ -25,7 +25,7 @@ class Highighter extends Component {
   constructor(props) {
     super(props);
 
-    this.mutateClass = this.mutateClass.bind(this);
+    this.getClassName = this.getClassName.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
@@ -43,7 +43,7 @@ class Highighter extends Component {
       });
   }
 
-  mutateClass(item, staticClassName, activeClassName) {
+  getClassName(item, staticClassName, activeClassName) {
     return classNames(staticClassName, {
       [activeClassName]: item === current,
     });
@@ -51,8 +51,8 @@ class Highighter extends Component {
 
   render() {
     return this.props.children({
-      mutateClass: this.mutateClass,
-      set: set,
+      getClassName: this.getClassName,
+      set: (item) => () => set(item),
       cancel: () => set(null)
     });
   }

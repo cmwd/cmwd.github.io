@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import Icon from './icon-component';
 
-export default function UiDecorator(Component) {
+export default function UiDecorator(WrappedComponent) {
   return (props) => {
     const {
       className,
@@ -19,7 +19,7 @@ export default function UiDecorator(Component) {
     });
 
     return (
-      <Component className={classes} {...rest}>
+      <WrappedComponent className={classes} {...rest}>
         {!(iconName && !iconAppend) ? null :
           <Icon iconName={iconName} />
         }
@@ -27,7 +27,7 @@ export default function UiDecorator(Component) {
         {!(iconName && iconAppend) ? null :
           <Icon iconName={iconName} />
         }
-      </Component>
+      </WrappedComponent>
     );
   }
 }

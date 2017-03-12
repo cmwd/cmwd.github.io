@@ -10,6 +10,7 @@ function Link(props) {
     className,
     target = '_blank',
     description = '',
+    gaLabel,
     ...rest
   } = props;
 
@@ -26,8 +27,9 @@ function Link(props) {
       {...attributes}
       className={classes}
       target={target}
+      onClick={a => console.log(props)}
     />
   );
 }
 
-export default UiDecorator(Analytics(Link, "link"));
+export default Analytics(UiDecorator(Link), 'Link');

@@ -1,7 +1,7 @@
 ---
 layout: position
 category: "Professional experience"
-position: "Front-end engineer"
+position: "Front-end developer"
 companyName: "Marfeel Solutions s.l."
 location: "Barcelona, Spain"
 start: "03-01-2016"

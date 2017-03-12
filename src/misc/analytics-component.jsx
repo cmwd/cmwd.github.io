@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactGA from 'react-ga';
 
 /**
@@ -12,54 +12,45 @@ if (typeof window !== "undefined") {
   ReactGA.set({ page: window.location.pathname });
 }
 
-class AnalyticsComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.clickHandler = this.clickHandler.bind(this);
-  }
+export default function AnalyticsComponentHOC (WrappedComponent, category) {
+  return class AnalyticsComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.clickHandler = this.clickHandler.bind(this);
+    }
 
-  sendEvent(props) {
-    if (SEND_METRICS) {
-      ReactGA.event(props);
-    } else {
-      console.info(props);
+    sendEvent(props) {
+      if (SEND_METRICS) {
+        ReactGA.event(props);
+      } else {
+        console.info(props);
+      }
+    }
+
+    clickHandler(event) {
+      const { gaLabel: label } = this.props;
+      const action = 'Click';
+
+      this.sendEvent({ category, action, label });
+
+      if (this.props.onClick) {
+        this.props.onClick(event);
+      }
+    }
+
+    render() {
+      const {
+        gaLabel,
+        ...rest
+      } = this.props;
+
+      return (
+        <WrappedComponent
+          {...rest}
+          onClick={this.clickHandler}
+        />
+      );
     }
   }
-
-  clickHandler(event) {
-    const { gaCategory: category, gaLabel: label } = this.props;
-    const action = 'Click';
-
-    this.sendEvent({ category, action, label });
-
-    if (this.props.onClick) {
-      this.props.onClick(event);
-    }
-  }
-
-  render() {
-    const {
-      component: ChildComponent,
-      gaCategory,
-      gaLabel,
-      ...rest
-    } = this.props;
-
-    return (
-      <ChildComponent
-        {...rest}
-        onClick={this.clickHandler}
-      />
-    );
-  }
-}
-
-export default (childComponent, category) =>
-  (props) => (
-    <AnalyticsComponent
-      component={childComponent}
-      gaCategory={category}
-      {...props}
-    />
-  );
+};
 

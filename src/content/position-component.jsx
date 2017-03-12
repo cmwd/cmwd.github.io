@@ -11,17 +11,8 @@ const SLUG_REGEX = /[\s\.]/g;
 const toSlug = (string) =>
   string.replace(SLUG_REGEX, '_').toLowerCase();
 
-const Hashtag = Analytics(({ tag, mutateClass, set, ...rest }) => (
-  <span
-    {...rest}
-    className={
-      mutateClass(
-        tag,
-        'content__position-tag',
-        'content__position-tag--highlight')}
-    onMouseEnter={(event) => set(tag)}
-    children={tag}
-  />
+const Hashtag = Analytics((props) => (
+  <span {...props} />
 ), 'Hashtag');
 
 export default function Position(props) {
@@ -52,7 +43,7 @@ export default function Position(props) {
       iconAppend
       gaLabel={toSlug(companyName)}
     />
-    : companyName;
+    : <span>{companyName}</span>;
 
   return (
     <article className="content__position">
@@ -62,9 +53,13 @@ export default function Position(props) {
           as="h3"
           type="subsection"
         >
-          {position}
+          {!position ? null :
+            <span>{position}</span>
+          }
           {!position ? company :
-            <span className="content__position-company-name">at {company}</span>
+              (<span className="content__position-company-name">
+                <span>at </span>{company}
+              </span>)
           }
         </Header>
         { !details.length ? null :
@@ -82,7 +77,7 @@ export default function Position(props) {
         className="content__position-description"
         children={content.html}
       />
-      <Highlighter stack={tags}>{(({ mutateClass, set, cancel }) => (
+      <Highlighter stack={tags}>{(({ getClassName, set, cancel }) => (
         <TextBlock
           secondary
           plain
@@ -92,9 +87,13 @@ export default function Position(props) {
           children={tags.map(tag => (
             <Hashtag
               gaLabel={tag}
-              mutateClass={mutateClass}
-              set={set}
-              tag={tag}
+              className={getClassName(
+                tag,
+                'content__position-tag',
+                'content__position-tag--highlight')}
+              onMouseEnter={set(tag)}
+              children={tag}
+              data-tag={tag}
               key={tag}
             />
           ))}
