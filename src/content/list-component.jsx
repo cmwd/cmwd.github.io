@@ -19,3 +19,7 @@ export default function ListComponent(props) {
   );
 }
 
+ListComponent.defaultProps = {
+  items: [],
+};
+

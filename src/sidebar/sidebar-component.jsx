@@ -44,5 +44,6 @@ export default function SidebarComponent(props) {
 
 SidebarComponent.defaultProps = {
   links: [],
+  content: {},
 };
 
