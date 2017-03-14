@@ -5,9 +5,10 @@ import ReactGA from 'react-ga';
  * @TODO move to env variable
  */
 const GA_ID = 'UA-72751097-1';
-const SEND_METRICS = process.env.NODE_ENV === 'production';
+const IS_PROD_ENV = process.env.NODE_ENV === 'production';
 
-if (typeof window !== "undefined") {
+
+if (IS_PROD_ENV) {
   ReactGA.initialize(GA_ID);
   ReactGA.set({ page: window.location.pathname });
 }
@@ -20,7 +21,7 @@ export default function AnalyticsComponentHOC (WrappedComponent, category) {
     }
 
     sendEvent(props) {
-      if (SEND_METRICS) {
+      if (IS_PROD_ENV) {
         ReactGA.event(props);
       } else {
         console.info(props);

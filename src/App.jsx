@@ -14,66 +14,52 @@ const layouts = {
   position: Position,
 };
 
-function getCategoryItems(files, categoryId) {
-  return files.reduce((memo, file) => {
+const getCategoryItems = (files, categoryId) =>
+  files.reduce((memo, file) => {
     if (file.categoryId !== categoryId) { return memo }
 
     let component = layouts[file.layout] || Section;
 
-    return [...memo, {file, component}];
+    return [...memo, { file, component }];
   }, []);
-}
 
-class App extends Component {
-  static defaultProps = {
-    files: [],
-    categories: [],
-  };
+const AppSidebar = ({ sidebar }) =>
+  !sidebar ? null :
+    (<Sidebar
+        className="app__sidebar pure-u-md-3-8"
+        {...sidebar}
+      />);
 
-  constructor(props) {
-    super(props);
-    this.state = props;
-  }
+function AppComponent(props) {
+  const { files, categories } = props;
+  const sidebar = files.find(file => file.layout === 'sidebar');
 
-  render() {
-    const {
-      categories,
-      files,
-    } = this.state;
-    const sidebar = files.find(file => file.layout === 'sidebar');
-
-    return (
-      <div className="container">
-        <div className="pure-g">
-          {!sidebar ? null :
-            <Sidebar
-              className="app__sidebar pure-u-md-3-8"
-              {...sidebar}
-            />
-          }
-          <div className="app__content pure-u-md-5-8">
-            {categories.map(category => (
-              <Section
-                title={category.name}
-                modifier={category.modifier}
-                key={category.categoryId}
-              >
-                {getCategoryItems(files, category.categoryId).map((item) => {
-                  const {
-                    file,
-                    component: Component,
-                  } = item;
-
-                  return (<Component {...file} key={file.fileName} />);
-                })}
-              </Section>
-            ))}
-          </div>
+  return (
+    <div className="container">
+      <div className="pure-g">
+        <AppSidebar sidebar={sidebar} />
+        <div className="app__content pure-u-md-5-8">
+          {categories.map((category, index) =>
+            <Section
+              title={category.name}
+              modifier={category.modifier}
+              key={category.categoryId}
+              children={
+                getCategoryItems(files, category.categoryId)
+                  .map(({ file, component: Component }) =>
+                    <Component {...file} key={file.fileName} />)}
+                  />
+          )}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default App;
+AppComponent.defaultProps = {
+  files: [],
+  categories: [],
+};
+
+export default AppComponent;
 
