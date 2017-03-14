@@ -1,8 +1,10 @@
+// @flow
+
 import React from 'react';
 
 import { TextBlock } from '../ui';
 
-export default function ListComponent(props) {
+export default function ListComponent(props: { items: Array<string> }) {
   const { items } = props;
 
   return (
