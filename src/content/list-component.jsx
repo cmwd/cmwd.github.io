@@ -4,7 +4,7 @@ import React from 'react';
 
 import { TextBlock } from '../ui';
 
-export default function ListComponent(props: { items: Array<string> }) {
+export default function ListComponent(props: { items: React.Element<*>[] }) {
   const { items } = props;
 
   return (

@@ -1,7 +1,9 @@
 [ignore]
+./build/.*
 
 [include]
 
 [libs]
+./declarations.js.flow
 
 [options]

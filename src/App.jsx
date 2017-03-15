@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import 'purecss/build/base-min.css';
 import 'purecss/build/grids-min.css';
@@ -8,6 +10,11 @@ import { List, Section, Position } from './content';
 import Sidebar from './sidebar/sidebar-component';
 
 import './App.css';
+
+type PropTypes = {
+  files: Array<File>,
+  categories: Array<Category>
+};
 
 const layouts = {
   list: List,
@@ -30,7 +37,7 @@ const AppSidebar = ({ sidebar }) =>
         {...sidebar}
       />);
 
-function AppComponent(props) {
+function AppComponent(props: PropTypes) {
   const { files, categories } = props;
   const sidebar = files.find(file => file.layout === 'sidebar');
 

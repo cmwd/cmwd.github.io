@@ -1,0 +1,14 @@
+// @flow
+
+declare type File = {
+  layout: string,
+  fileName: string,
+  categoryId: string
+}
+
+declare type Category = {
+  name: string,
+  categoryId: string,
+  modifier: string,
+}
+
