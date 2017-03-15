@@ -18,6 +18,8 @@ declare type File = {
   current?: boolean,
   start?: number,
   end?: number,
+  dateFormat?: string,
+  location?: string,
   tags?: Array<string>,
   items?: Array<string>,
   url?: string,

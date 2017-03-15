@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { format } from 'date-fns';
 
@@ -8,25 +10,25 @@ import Analytics from '../misc/analytics-component';
 const DATE_FORMAT = 'MM-YYYY';
 const SLUG_REGEX = /[\s\.]/g;
 
-const toSlug = (string) =>
-  string.replace(SLUG_REGEX, '_').toLowerCase();
+const toSlug = (value = '') =>
+  value.replace(SLUG_REGEX, '_').toLowerCase();
 
 const Hashtag = Analytics((props) => (
   <span {...props} />
 ), 'Hashtag');
 
-export default function Position(props) {
+export default function Position(props: File) {
   const {
     position,
     companyName,
     location,
-    content,
+    content = {},
     start,
     end,
     dateFormat = DATE_FORMAT,
     current,
     url,
-    tags: tagsRaw,
+    tags: tagsRaw = [],
   } = props;
   const tags = tagsRaw.map(tag => tag.toLowerCase());
   const endDate = current ? 'present' : format(end, dateFormat);
@@ -102,9 +104,4 @@ export default function Position(props) {
     </article>
   );
 }
-
-Position.defaultProps = {
-  tags: [],
-  content: {},
-};
 
