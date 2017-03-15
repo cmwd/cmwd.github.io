@@ -1,14 +1,35 @@
 // @flow
 
+declare type FileContent = {
+  html: string,
+}
+
+declare type FileMeta = {
+  category?: string,
+}
+
 declare type File = {
   layout: string,
   fileName: string,
-  categoryId: string
+  categoryId?: string,
+  category: string,
+  companyName?: string,
+  position?: string,
+  current?: boolean,
+  start?: number,
+  end?: number,
+  tags?: Array<string>,
+  items?: Array<string>,
+  url?: string,
+  order: number,
+  content: FileContent,
+  meta: FileMeta,
 }
 
 declare type Category = {
   name: string,
   categoryId: string,
-  modifier: string,
+  order: number,
+  modifier?: string,
 }
 
