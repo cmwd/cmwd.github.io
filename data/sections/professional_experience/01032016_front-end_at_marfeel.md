@@ -6,7 +6,6 @@ companyName: "Marfeel Solutions s.l."
 location: "Barcelona, Spain"
 start: "03-01-2016"
 current: true
-order: 1
 url: "https://www.marfeel.com/"
 tags:
     - "ES6"

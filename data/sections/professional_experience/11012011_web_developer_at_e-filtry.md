@@ -6,7 +6,6 @@ companyName: "Efiltry.pl"
 location: "Gostyń, Poland"
 start: "11-01-2011"
 end: "02-01-2013"
-order: 1
 url: "https://efiltry.pl/"
 tags:
   - "PHP"

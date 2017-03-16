@@ -9,10 +9,10 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var StaticSiteGenerator = require('static-site-generator-webpack-plugin');
-var data = require('./data');
+var DataManager = require('../src/data-manager');
 var RawSource = require('webpack-sources/lib/RawSource');
 
-const appData = data(paths.appDataDir);
+const appData = DataManager.readDataDir(paths.appDataDir);
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.

@@ -1,0 +1,18 @@
+exports[`test Should create an entitie description object 1`] = `
+Object {
+  "content": "<p>My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in back-end and client side.</p>
+",
+  "meta": Object {
+    "layout": "position",
+    "name": "Koloremo",
+    "tags": Array [
+      "Wordpress",
+      "Timber",
+      "SASS",
+      "ES6",
+    ],
+    "url": "http://koloremo.pl",
+  },
+  "name": "section.md",
+}
+`;

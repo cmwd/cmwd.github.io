@@ -26,7 +26,7 @@ var useYarn = fs.existsSync(paths.yarnLockFile);
 var cli = useYarn ? 'yarn' : 'npm';
 var isInteractive = process.stdout.isTTY;
 
-var data = require('../config/data');
+var DataManager = require('../src/data-manager');
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -157,7 +157,7 @@ function addMiddleware(devServer) {
   // Every unrecognized request will be forwarded to it.
   var proxy = require(paths.appPackageJson).proxy;
   devServer.app.get('/data.json', function(req, res) {
-    res.json(data(paths.appDataDir));
+    res.json(DataManager.readDataDir(paths.appDataDir));
   });
   devServer.use(historyApiFallback({
     // Paths with dots should still use the history fallback.

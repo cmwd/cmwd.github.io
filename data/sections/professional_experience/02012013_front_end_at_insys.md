@@ -6,7 +6,6 @@ companyName: "Insys sp. z o.o"
 location: "Poznań, Poland"
 start: "02-01-2013"
 end: "03-01-2016"
-order: 1
 url: "http://www.insys.pl/"
 tags:
  - "ES6"
