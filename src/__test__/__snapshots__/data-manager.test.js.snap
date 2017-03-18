@@ -1,18 +1,78 @@
-exports[`test Should create an entitie description object 1`] = `
+exports[`Entitie should match snapshoted object 1`] = `
 Object {
   "content": "<p>My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in back-end and client side.</p>
 ",
-  "meta": Object {
-    "layout": "position",
-    "name": "Koloremo",
-    "tags": Array [
-      "Wordpress",
-      "Timber",
-      "SASS",
-      "ES6",
-    ],
-    "url": "http://koloremo.pl",
+  "end": 1492725600000,
+  "file": Object {
+    "name": "123_section.md",
+    "prefix": 123,
   },
-  "name": "section.md",
+  "layout": "position",
+  "name": "first-position",
+  "start": 1490050800000,
+  "tags": Array [
+    "Wordpress",
+    "Timber",
+    "SASS",
+    "ES6",
+  ],
+  "url": "url",
+}
+`;
+
+exports[`Entitie should throw an error if entity name does not have a number 1`] = `"Entity prefix is not a number: section.md"`;
+
+exports[`test Should create category description object 1`] = `
+Object {
+  "dateFormat": "MM-YYYY",
+  "name": "Section One",
+}
+`;
+
+exports[`test Should traverse directories tree 1`] = `
+Object {
+  "entities": Array [],
+  "section-one": Object {
+    "dateFormat": "MM-YYYY",
+    "entities": Array [
+      Object {
+        "content": "<p>My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in back-end and client side.</p>
+",
+        "end": 1492725600000,
+        "file": Object {
+          "name": "03212017_section.md",
+          "prefix": 3212017,
+        },
+        "layout": "position",
+        "name": "first-position",
+        "start": 1490050800000,
+        "tags": Array [
+          "Wordpress",
+          "Timber",
+          "SASS",
+          "ES6",
+        ],
+        "url": "url",
+      },
+      Object {
+        "content": "<p>My role was to convert given design project into a Wordpress custom theme. To meet requirements I had to implement custom plugins both in back-end and client side.</p>
+",
+        "file": Object {
+          "name": "03212016_section.md",
+          "prefix": 3212016,
+        },
+        "layout": "position",
+        "name": "second-position",
+        "tags": Array [
+          "Wordpress",
+          "Timber",
+          "SASS",
+          "ES6",
+        ],
+        "url": "url",
+      },
+    ],
+    "name": "Section One",
+  },
 }
 `;
