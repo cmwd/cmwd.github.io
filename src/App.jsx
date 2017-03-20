@@ -10,63 +10,47 @@ import { List, Section, Position } from './content';
 import Sidebar from './sidebar/sidebar-component';
 
 import './App.css';
+import type { SidebarEntityT, SectionT } from './entity/entity-types';
 
 type PropTypes = {
-  files: Array<File>,
-  categories: Array<Category>
+  sidebar: SidebarEntityT,
+  sections: Array<SectionT>,
 };
 
 const layouts = {
-  list: List,
-  position: Position,
+  LIST: List,
+  POSITION: Position,
 };
 
-const getCategoryItems = (files, categoryId) =>
-  files.reduce((memo, file) => {
-    if (file.categoryId !== categoryId) { return memo }
+function ItemComponent({ layout, ...rest }) {
+  const Component = layouts[layout];
 
-    let component = layouts[file.layout] || Section;
+  return <Component {...rest} />
+}
 
-    return [...memo, { file, component }];
-  }, []);
-
-const AppSidebar = ({ sidebar }) =>
-  !sidebar ? null :
-    (<Sidebar
-        className="app__sidebar pure-u-md-3-8"
-        {...sidebar}
-      />);
-
-function AppComponent(props: PropTypes) {
-  const { files, categories } = props;
-  const sidebar = files.find(file => file.layout === 'sidebar');
-
+function AppComponent({ sidebar, sections }: PropTypes) {
   return (
     <div className="container">
       <div className="pure-g">
-        <AppSidebar sidebar={sidebar} />
+        <Sidebar
+          className="app__sidebar pure-u-md-3-8"
+          {...sidebar}
+        />
         <div className="app__content pure-u-md-5-8">
-          {categories.map((category, index) =>
+          {sections.map(({ items, category }) => (
             <Section
-              title={category.name}
-              modifier={category.modifier}
-              key={category.categoryId}
-              children={
-                getCategoryItems(files, category.categoryId)
-                  .map(({ file, component: Component }) =>
-                    <Component {...file} key={file.fileName} />)}
-                  />
-          )}
+                title={category.name}
+                modifier={category.modifier}
+                key={category.slug}
+                children={items.map((item, index) => (
+                  <ItemComponent {...item} key={index} />
+                ))}
+              />
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-AppComponent.defaultProps = {
-  files: [],
-  categories: [],
-};
-
 export default AppComponent;
-

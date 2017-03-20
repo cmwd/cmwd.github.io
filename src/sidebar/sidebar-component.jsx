@@ -1,18 +1,26 @@
+// @flow
+
 import React from 'react';
 import classNames from 'classnames';
 
 import { Header, TextBlock } from '../ui';
 import SidebarLink from './sidebar-link-component';
+import type { SidebarLinkT } from './sidebar-link-component';
 
 import './sidebar.css';
+import type { SidebarEntityT } from '../entity/entity-types';
 
-export default function SidebarComponent(props) {
+type PropTypes = SidebarEntityT & {
+  className: string
+};
+
+export default function SidebarComponent(props: PropTypes) {
   const {
     className,
     title,
     printTitle,
     picture,
-    links,
+    links = [],
     content,
   } = props;
 
@@ -31,7 +39,7 @@ export default function SidebarComponent(props) {
         />
         <TextBlock
           className="sidebar__introduction"
-          children={content.html}
+          children={content}
         />
       </div>
       <div
@@ -41,9 +49,3 @@ export default function SidebarComponent(props) {
     </div>
   );
 }
-
-SidebarComponent.defaultProps = {
-  links: [],
-  content: {},
-};
-

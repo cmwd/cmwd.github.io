@@ -8,13 +8,23 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
+type Meta = {
+  [key: string]: any,
+};
+
 declare module 'meta-marked' {
-  declare module.exports: any;
+  declare function exports(content: string) : {
+    +meta: Object,
+    +html: string,
+    +markdown: string
+  }
+// @flow
+
 }
 
 /**

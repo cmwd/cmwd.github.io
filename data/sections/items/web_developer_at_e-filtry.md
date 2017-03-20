@@ -1,6 +1,6 @@
 ---
 layout: position
-category: "Professional experience"
+categorySlug: "professional_experience"
 position: "Web developer"
 companyName: "Efiltry.pl"
 location: "Gostyń, Poland"

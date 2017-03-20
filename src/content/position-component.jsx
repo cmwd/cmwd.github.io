@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { format } from 'date-fns';
 
@@ -10,6 +9,22 @@ import Analytics from '../misc/analytics-component';
 const DATE_FORMAT = 'MM-YYYY';
 const SLUG_REGEX = /[\s\.]/g;
 
+export type PositionEntityT = {
+  categorySlug: string,
+  layout: "position",
+
+  position: string,
+  companyName: string,
+  location: string,
+  dateFormat?: string,
+  content: any,
+  start: number,
+  end: number,
+  current: boolean,
+  url: string,
+  tags: Array<string>
+};
+
 const toSlug = (value = '') =>
   value.replace(SLUG_REGEX, '_').toLowerCase();
 
@@ -17,7 +32,7 @@ const Hashtag = Analytics((props) => (
   <span {...props} />
 ), 'Hashtag');
 
-export default function Position(props: File) {
+export default function Position(props: PositionEntityT) {
   const {
     position,
     companyName,
@@ -104,4 +119,3 @@ export default function Position(props: File) {
     </article>
   );
 }
-

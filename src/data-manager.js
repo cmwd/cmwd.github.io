@@ -1,69 +1,60 @@
+// @flow
+
 const marked = require('meta-marked');
 const fs = require('fs');
 const path = require('path');
 
 const DEFAULT_DATE_FORMAT = 'MM-YYYY';
 
-function getEntitieDetails(entitiePath, name) {
-  const content = fs.readFileSync(entitiePath).toString();
-  const { meta, html } = marked(content);
-  const prefix = parseInt(name.split('_')[0], 10);
-  const optionalValues = {};
-
-  if (isNaN(prefix)) {
-      throw new Error(`Entity prefix is not a number: ${name}`);
-  }
-
-  if (meta.start) {
-    optionalValues.start = Date.parse(meta.start);
-  }
-
-  if (meta.end) {
-    optionalValues.end = Date.parse(meta.end);
-  }
-
-  const file = {
-    name,
-    prefix,
+/*::
+  export type Entity = {
+    [key: string]: Object
   };
+*/
 
-  return Object.assign({ content: html, file }, meta, optionalValues);
+function getEntitieDetails(entityPath )/*: Entity */ {
+  const { meta, html } = marked(fs.readFileSync(entityPath).toString());
+  const optionalValues = {};
+  const { start, end }/*: { start?: string, end?: string} */ = meta;
+
+  if (start) {
+    optionalValues.start = Date.parse(start);
+  }
+
+  if (end) {
+    optionalValues.end = Date.parse(end);
+  }
+
+  return Object.assign({ content: html }, meta, optionalValues);
 }
 
-function getCategoryDetails(descriptorPath) {
-  const content = fs.readFileSync(descriptorPath).toString();
-  const { meta } = marked(content);
-
-  return Object.assign({
-    dateFormat: DEFAULT_DATE_FORMAT,
-  }, meta);
+function slugify(value/*: string */)/*: string */ {
+  return value
+    .replace('.md', '')
+    .replace(/([\.\s\-\_].)/g, (value) => value[1].toUpperCase());
 }
 
-function readDataDir(startDir) {
-  const result = {};
-
+function readDataDir(startDir/*: string */)/*: Entity */ {
   return fs
     .readdirSync(startDir)
-    .reduce((memo, item) => {
-      const itemPath = path.resolve(startDir, item);
-      const isMarkdownFile = path.extname(item) === '.md';
-      const isCategoryDescriptor = isMarkdownFile
-        && item.startsWith('category-descriptor');
+    .reduce((memo, entity) => {
+      const entityPath = path.resolve(startDir, entity);
+      const stat = fs.statSync(entityPath);
 
-      Object.assign(memo, { entities: memo.entities || [] });
-
-      if (isCategoryDescriptor) {
-        Object.assign(memo, getCategoryDetails(itemPath));
+      if (stat.isDirectory()) {
+        Object.assign(memo, {
+          [slugify(entity)]: readDataDir(entityPath),
+        });
       }
 
-      if (!isCategoryDescriptor && isMarkdownFile) {
-        memo.entities = [getEntitieDetails(itemPath, item), ...memo.entities];
-      } else if (fs.statSync(itemPath).isDirectory()) {
-        Object.assign(memo, { [item]: readDataDir(itemPath) });
+      if (stat.isFile() && path.extname(entity) === '.md') {
+        Object.assign(memo, {
+          [slugify(entity)]: getEntitieDetails(entityPath),
+        });
       }
 
       return memo;
     }, {});
 }
 
-module.exports = { readDataDir, getEntitieDetails, getCategoryDetails };
+module.exports = { readDataDir, getEntitieDetails };

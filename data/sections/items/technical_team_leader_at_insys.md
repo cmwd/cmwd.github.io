@@ -1,6 +1,6 @@
 ---
 layout: position
-category: "Professional experience"
+categorySlug: "professional_experience"
 position: "Technical team leader"
 companyName: "Insys sp. z o.o"
 location: "Poznań, Poland"

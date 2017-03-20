@@ -1,37 +1,47 @@
 // @flow
 
-declare type FileContent = {
-  html: string,
+declare type Entity = {
+  entity: string,
+  children?: Array<Entity>
 }
 
-declare type FileMeta = {
-  category?: string,
+declare type SidebarEntityLink = {
+  href: string,
+  iconName: string,
+  description: string,
+  print?: boolean,
+  web?: boolean,
+  gaLabel: string
 }
 
-declare type File = {
-  layout: string,
-  fileName: string,
-  categoryId?: string,
-  category: string,
-  companyName?: string,
-  position?: string,
-  current?: boolean,
-  start?: number,
-  end?: number,
-  dateFormat?: string,
-  location?: string,
-  tags?: Array<string>,
-  items?: Array<string>,
-  url?: string,
-  order: number,
-  content: FileContent,
-  meta: FileMeta,
+declare type SidebarEntity = {
+  title: string,
+  printTitle: string,
+  picture: string,
+  content: string,
+  links: Array<SidebarEntityLink>,
 }
 
-declare type Category = {
+declare type CategoryEntity = Entity & {
   name: string,
-  categoryId: string,
-  order: number,
-  modifier?: string,
+  slug: string,
+  order: number
+}
+
+declare type PositionEntity = Entity & {
+  layout: string,
+  content: string,
+  categorySlug: string,
+  position: string,
+  company: string,
+  location: string,
+  start: number,
+  end: number,
+  url: string,
+  tags: Array<string>
+}
+
+declare type ListEntity = {
+  items: Array<string>
 }
 

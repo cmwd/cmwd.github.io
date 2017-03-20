@@ -3,8 +3,9 @@
 import React from 'react';
 
 import { TextBlock } from '../ui';
+import type { ListEntityT } from '../entity/entity-types';
 
-export default function ListComponent(props: { items: React.Element<*>[] }) {
+export default function ListComponent(props: ListEntityT) {
   const { items } = props;
 
   return (
@@ -20,8 +21,3 @@ export default function ListComponent(props: { items: React.Element<*>[] }) {
     </ul>
   );
 }
-
-ListComponent.defaultProps = {
-  items: [],
-};
-

@@ -1,7 +1,7 @@
 ---
 layout: position
-category: "Freelance projects"
 companyName: "Koloremo"
+categorySlug: "freelance_projects"
 order: 3
 url: "http://koloremo.pl"
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: list
-category: "Professional capabilities"
+categorySlug: "professional_capabilities"
 items:
   - "Writing modular, performant and reusable code using design patterns"
   - "Building and maintaining high-load applications"

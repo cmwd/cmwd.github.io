@@ -1,7 +1,6 @@
 ---
 layout: list
-category: "Current favourite stack"
-modifier: "print-hidden"
+categorySlug: "favourite_stack"
 items:
   - "EcmaScript 2016"
   - "Node.js"

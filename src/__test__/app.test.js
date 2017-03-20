@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import App from './App';
+import App from '../app';
 
 it('should render sidebar', function() {
   let app = render(<App />);

@@ -1,7 +1,7 @@
 ---
 layout: position
-category: "Freelance projects"
 companyName: "Maja Sobura - Industrial Designer"
+categorySlug: "freelance_projects"
 order: 3
 url: "http://majasobura.com/"
 tags:

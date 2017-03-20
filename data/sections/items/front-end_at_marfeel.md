@@ -1,6 +1,6 @@
 ---
 layout: position
-category: "Professional experience"
+categorySlug: "professional_experience"
 position: "Front-end developer"
 companyName: "Marfeel Solutions s.l."
 location: "Barcelona, Spain"

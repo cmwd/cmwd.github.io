@@ -1,7 +1,6 @@
 ---
 layout: position
-category: "Summary"
-modifier: "print-show"
+categorySlug: "technical_summary"
 order: 4
 ---
 

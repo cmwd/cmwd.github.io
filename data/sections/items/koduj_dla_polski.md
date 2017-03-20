@@ -1,7 +1,7 @@
 ---
 layout: position
-category: "Open source projects"
 companyName: "Koduj dla Polski"
+categorySlug: "open_source_projects"
 order: 2
 url: "http://kodujdlapolski.pl/projects/wysadz-ulice/"
 tags:
