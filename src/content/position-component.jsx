@@ -1,62 +1,30 @@
 // @flow
+
 import React from 'react';
 import { format } from 'date-fns';
 
 import EntityComponent from './entity-component';
-import { Header, TextBlock, Link } from '../ui';
 import TagLine from './tagline-component';
+import { Header, TextBlock, Link, DateRange, DetailsBar } from '../ui';
 
-const DATE_FORMAT = 'MM-YYYY';
+import type { PositionEntityT } from '../entity/entity-types';
+
 const SLUG_REGEX = /[\s\.]/g;
-
-export type PositionEntityT = {
-  categorySlug: string,
-  layout: "position",
-
-  position: string,
-  companyName: string,
-  location: string,
-  dateFormat?: string,
-  content: any,
-  start: number,
-  end: number,
-  current: boolean,
-  url: string,
-  tags: Array<string>
-};
 
 const toSlug = (value = '') =>
   value.replace(SLUG_REGEX, '_').toLowerCase();
 
-export default function Position(props: PositionEntityT) {
-  const {
-    position,
-    companyName,
-    location,
-    content = {},
-    start,
-    end,
-    dateFormat = DATE_FORMAT,
-    current,
-    url,
-    tags = [],
-  } = props;
-
-  const endDate = current ? 'present' : format(end, dateFormat);
-  const details = [
-    start ? `${endDate} - ${format(start, dateFormat)}` : '',
-    location ? ` / ${location}` : '',
-  ].join('');
-  const company = url
+export default function PositionComponent(props: PositionEntityT) {
+  const company = props.url
     ? <Link
       className="content__position-link"
-      href={url}
-      children={companyName}
+      href={props.url}
+      children={props.companyName}
       iconName="external-link"
       iconAppend
-      gaLabel={toSlug(companyName)}
+      gaLabel={toSlug(props.companyName)}
     />
-    : <span>{companyName}</span>;
+  : <span>{props.companyName}</span>;
 
   return (
     <EntityComponent modifier="position">
@@ -66,31 +34,30 @@ export default function Position(props: PositionEntityT) {
           as="h3"
           type="subsection"
         >
-          {!position ? null :
-            <span>{position}</span>
+          {!props.position ? null :
+            <span>{props.position}</span>
           }
-          {!position ? company :
+          {!props.position ? company :
               (<span className="content__position-company-name">
                 <span>at </span>{company}
               </span>)
           }
         </Header>
-        { !details.length ? null :
-            <TextBlock
-              secondary
-              plain
-              className="content__position-details"
-              as="span"
-              children={details}
-            />
-        }
+        <DetailsBar>
+          <DateRange start={props.start} end={props.end} />
+          {props.location}
+        </DetailsBar>
       </header>
       <TextBlock
         as="div"
-        className="content__position-description"
-        children={content.html}
+        className="content__description"
+        children={props.content}
       />
-    <TagLine tags={tags} />
+    <TagLine tags={props.tags} />
     </EntityComponent>
   );
 }
+
+PositionComponent.defaultProps = {
+  tags: []
+};

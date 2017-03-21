@@ -20,6 +20,15 @@ export type PositionEntityT = {
   layout: 'POSITION';
   content: string;
   categorySlug: string;
+  position: string;
+  companyName: string;
+  location: string;
+  start: number;
+  end: number;
+  dateFormat?: string;
+  current: boolean;
+  url: string;
+  tags: Array<string>;
 };
 
 export type ListEntityT = {
