@@ -6,7 +6,7 @@ import 'purecss/build/grids-min.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/grids-units-min.css';
 
-import { List, Section, Position } from './content';
+import { List, Section, Position, Project } from './content';
 import Sidebar from './sidebar/sidebar-component';
 
 import './App.css';
@@ -20,6 +20,7 @@ type PropTypes = {
 const layouts = {
   LIST: List,
   POSITION: Position,
+  PROJECT: Project,
 };
 
 function ItemComponent({ layout, ...rest }) {

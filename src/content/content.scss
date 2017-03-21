@@ -1,19 +1,5 @@
 @import '../variables.scss';
 
-%content-spacing {
-  padding: 0 0 2em;
-
-  @include screen-print {
-    padding: 0 0 1em;
-  }
-}
-
-%prevent-breaking-inside {
-  @include screen-print {
-    page-break-inside: avoid;
-  }
-}
-
 @mixin inline-text {
   display: inline;
 
@@ -54,28 +40,35 @@
     }
   }
 
-  &__list {
-    @extend %content-spacing;
-    @extend %prevent-breaking-inside;
+  &__entity {
+    padding: 0 0 2em;
 
-    margin: 0;
-  }
-
-  &__position {
-    @extend %content-spacing;
-    @extend %prevent-breaking-inside;
-    @include link-indicator;
-
-    &:hover {
-      @include link-indicator;
-
-      &-link:hover {
-        color: $base002;
-      }
+    @include screen-print {
+      padding: 0 0 1em;
     }
 
-    @include screen-md {
-      @include link-indicator(false);
+    @include screen-print {
+      page-break-inside: avoid;
+    }
+
+    &--list {
+      margin: 0;
+    }
+
+    &--position {
+      @include link-indicator;
+
+      &:hover {
+        @include link-indicator;
+
+        &-link:hover {
+          color: $base002;
+        }
+      }
+
+      @include screen-md {
+        @include link-indicator(false);
+      }
     }
   }
 
@@ -148,4 +141,3 @@
     }
   }
 }
-

@@ -2,9 +2,9 @@
 import React from 'react';
 import { format } from 'date-fns';
 
+import EntityComponent from './entity-component';
 import { Header, TextBlock, Link } from '../ui';
-import Highlighter from '../highlighter/highlighter-container';
-import Analytics from '../misc/analytics-component';
+import TagLine from './tagline-component';
 
 const DATE_FORMAT = 'MM-YYYY';
 const SLUG_REGEX = /[\s\.]/g;
@@ -28,10 +28,6 @@ export type PositionEntityT = {
 const toSlug = (value = '') =>
   value.replace(SLUG_REGEX, '_').toLowerCase();
 
-const Hashtag = Analytics((props) => (
-  <span {...props} />
-), 'Hashtag');
-
 export default function Position(props: PositionEntityT) {
   const {
     position,
@@ -43,9 +39,9 @@ export default function Position(props: PositionEntityT) {
     dateFormat = DATE_FORMAT,
     current,
     url,
-    tags: tagsRaw = [],
+    tags = [],
   } = props;
-  const tags = tagsRaw.map(tag => tag.toLowerCase());
+
   const endDate = current ? 'present' : format(end, dateFormat);
   const details = [
     start ? `${endDate} - ${format(start, dateFormat)}` : '',
@@ -63,7 +59,7 @@ export default function Position(props: PositionEntityT) {
     : <span>{companyName}</span>;
 
   return (
-    <article className="content__position">
+    <EntityComponent modifier="position">
       <header>
         <Header
           className="content__position-title"
@@ -94,28 +90,7 @@ export default function Position(props: PositionEntityT) {
         className="content__position-description"
         children={content.html}
       />
-      <Highlighter stack={tags}>{(({ getClassName, set, cancel }) => (
-        <TextBlock
-          secondary
-          plain
-          as="div"
-          className="content__position-tagline"
-          onMouseLeave={cancel}
-          children={tags.map(tag => (
-            <Hashtag
-              gaLabel={tag}
-              className={getClassName(
-                tag,
-                'content__position-tag',
-                'content__position-tag--highlight')}
-              onMouseEnter={set(tag)}
-              children={tag}
-              data-tag={tag}
-              key={tag}
-            />
-          ))}
-        />
-      ))}</Highlighter>
-    </article>
+    <TagLine tags={tags} />
+    </EntityComponent>
   );
 }
