@@ -11,6 +11,8 @@ type PropTypesT = {
 };
 
 export default function DateRangeComponent(props: PropTypesT) {
+  if (typeof props.start !== 'number') { return null; }
+
   const start: string = format(props.start, props.format);
   const end: string = props.end
     ? format(props.end, props.format)

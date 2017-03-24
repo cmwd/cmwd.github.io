@@ -1,5 +1,5 @@
 ---
-layout: position
+layout: cms
 categorySlug: "technical_summary"
 order: 4
 ---

@@ -39,12 +39,27 @@ export type ListEntityT = {
 
 export type ProjectEntityT = {
   layout: 'PROJECT';
+  name: string;
   categorySlug: string;
   content: string;
   title: string;
   url: string;
   tags: Array<string>;
 };
+
+export type EducationEntityT = {
+  layout: 'EDUCATION';
+  categorySlug: string;
+  name: string;
+  start: number;
+  end: number;
+};
+
+export type CMST = {
+  layout: 'CMS';
+  categorySlug: string;
+  content: string;
+}
 
 export type CategoryEntityT = {
   name: string;

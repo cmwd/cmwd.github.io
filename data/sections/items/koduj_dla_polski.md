@@ -1,6 +1,6 @@
 ---
-layout: position
-companyName: "Koduj dla Polski"
+layout: project
+name: "Koduj dla Polski"
 categorySlug: "open_source_projects"
 order: 2
 url: "http://kodujdlapolski.pl/projects/wysadz-ulice/"

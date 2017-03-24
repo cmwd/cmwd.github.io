@@ -1,6 +1,6 @@
 ---
-layout: position
-companyName: "Koloremo"
+layout: project
+name: "Koloremo"
 categorySlug: "freelance_projects"
 order: 3
 url: "http://koloremo.pl"

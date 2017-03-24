@@ -1,6 +1,6 @@
 ---
 layout: project
-companyName: "Awesome Conferences"
+name: "Awesome Conferences"
 categorySlug: "open_source_projects"
 url: "https://github.com/cmwd/awesome-conferences-app"
 tags:

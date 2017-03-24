@@ -2,6 +2,7 @@
 
 import React from 'react';
 import type { Children } from 'react';
+import { isUndefined, last } from 'lodash';
 
 import TextBlock from './text-block-component';
 
@@ -16,10 +17,12 @@ const defaultSplitter = () => (<span>{` / `}</span>);
 const joiner = (components: Components, Splitter: Children): Array<Children> =>
   !Array.isArray(components)
     ? components
-    : components.reduce((memo, component, index) => {
+    : components
+    .filter(c => !isUndefined(c))
+    .reduce((memo, component, index, collection) => {
       memo.push(component);
 
-      if (index !== components.length - 1) {
+      if (component !== last(collection)) {
         memo.push(<Splitter key={index} />)
       }
 
