@@ -3,8 +3,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+type PropsTypesT = {
+  iconName: string;
+};
 
-function IconComponent(props) {
+function IconComponent(props: PropsTypesT) {
   const {
     iconName,
     ...rest,
