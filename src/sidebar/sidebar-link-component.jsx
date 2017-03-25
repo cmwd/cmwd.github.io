@@ -1,32 +1,61 @@
+// @flow
+
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import styled, { css } from 'styled-components';
 
 import { Link } from '../ui';
+import { screen, media } from '../style';
 
-export type SidebarLinkT = {
-  href: string,
-  iconName: string,
-  web?: boolean,
-  print?: boolean,
+type SidebarLinkT = {
+  href: string;
+  iconName: string;
+  web?: boolean;
+  print?: boolean;
 };
 
-export default function SidebarLinkComponent (props: SidebarLinkT) {
+
+const showInPrintScreen = (props: { print: boolean }) => props.print ? null :
+  screen.print`
+    display: none;
+  `;
+
+const showInWebScreen = (props: { web: boolean }) => props.web ? null :
+  screen.screen`
+    display: none;
+  `;
+
+const SidebarLink = styled(Link)`
+  padding: 0 0.1em;
+  margin: 0 0.2em;
+
+  ${screen.print`
+    text-align: left;
+    line-height: 1.5em;
+    padding: 0;
+    margin: 0 1em 0 ;
+  `}
+
+  ${showInPrintScreen}
+  ${showInWebScreen}
+`;
+
+
+function SidebarLinkComponent (props: SidebarLinkT) {
   const {
     print = false,
     web = true,
     ...rest
   } = props;
 
-  const classes = classNames('sidebar__link', {
-    'sidebar__link--print-hidden': !print,
-    'sidebar__link--web-hidden': !web
-  });
-
   return (
-    <Link
+    <SidebarLink
       {...rest}
-      className={classes}
+      print={print}
+      web={web}
       key={props.href}
     />
   );
 };
+
+export default SidebarLinkComponent;
+

@@ -2,10 +2,11 @@
 
 import React from 'react';
 import classNames from 'classnames';
+import styled from 'styled-components';
 
 import { Header, TextBlock } from '../ui';
 import SidebarLink from './sidebar-link-component';
-import type { SidebarLinkT } from './sidebar-link-component';
+import { screen, media } from '../style';
 
 import './sidebar.css';
 import type { SidebarEntityT } from '../entity/entity-types';
@@ -13,6 +14,20 @@ import type { SidebarEntityT } from '../entity/entity-types';
 type PropTypes = SidebarEntityT & {
   className: string
 };
+
+const SidebarLinks = styled.div`
+  text-align: center;
+
+  ${screen.print`
+    text-align: left;
+    font-size: 0.8em;
+  `}
+
+  ${media.medium`
+    top: 1em;
+    position: sticky;
+  `}
+`;
 
 export default function SidebarComponent(props: PropTypes) {
   const {
@@ -42,10 +57,9 @@ export default function SidebarComponent(props: PropTypes) {
           children={content}
         />
       </div>
-      <div
-        className="sidebar__links"
-        children={links.map((link) => <SidebarLink {...link} />)}
-      />
+      <SidebarLinks>
+        {links.map((link) => <SidebarLink {...link} />)}
+      </SidebarLinks>
     </div>
   );
 }

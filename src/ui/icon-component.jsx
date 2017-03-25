@@ -1,24 +1,36 @@
+// @flow
+
 import React from 'react';
-import classNames from 'classnames';
+import styled from 'styled-components';
 
-export const getIconClass = ({ className, iconName }) => 
-  classNames(className, `ui__icon fa fa-${iconName}`);
+const Icon = styled.i`
+  ${props => console.log(props) || !props.iconLeftMargin ? null : `
+    margin-left: ${props.iconLeftMargin};
+  `}
+  ${props => !props.iconSize ? null : `
+    font-size: ${props.iconSize};
+  `}
+`;
 
-function Icon(props) {
+function IconComponent(props) {
   const {
     as: ElementType = 'i',
-    className,
     iconName,
+    iconLeftMargin = null,
+    iconSize = null,
     ...rest,
   } = props;
 
   return (
-    <ElementType
+    <Icon
       {...rest}
-      className={getIconClass({ className, iconName })}
+      className={`fa fa-${iconName}`}
+      iconLeftMargin={iconLeftMargin}
+      iconSize={iconSize}
       aria-hidden
     />
   );
 }
 
-export default Icon;
+export default IconComponent;
+

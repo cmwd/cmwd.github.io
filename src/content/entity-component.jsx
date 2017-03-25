@@ -1,17 +1,27 @@
 // @flow
 
 import React from 'react';
+import styled from 'styled-components';
 import type { Children } from 'react';
+
+import { media, screen } from '../style';
 
 type PropTypesT = {
   children?: Children;
-  modifier: string;
 };
+
+const Entity = styled.article`
+  padding: 0 0 2em;
+
+  ${screen.print`
+    padding: 0 0 1em;
+    page-break-inside: avoid;
+  `}
+`;
 
 export default function EntityComponent(props: PropTypesT) {
   return (
-    <article
-      className={`content__entity content__entity--${props.modifier}`}
+    <Entity
       children={props.children}
     />
   );

@@ -14,7 +14,7 @@ import type { PositionEntityT } from '../entity/entity-types';
 
 export default function PositionComponent(props: PositionEntityT) {
   return (
-    <Entity modifier="position">
+    <Entity>
       <header>
         <EntityTitle>
           <span>{`${props.position} at `}</span>
