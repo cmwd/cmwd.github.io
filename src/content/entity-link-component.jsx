@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import styled from 'styled-components';
+import styled , { css } from 'styled-components';
 
 import { Link } from '../ui';
 import { COLOR } from '../style';
@@ -17,13 +17,17 @@ const toSlug = (value = '') =>
 
 const EntityLink = styled(Link)`
   color: ${COLOR.base02};
+
+  .ui__icon {
+    font-size: 0.8em;
+    margin-left: 0.4em;
+    opacity: 0;
+  }
 `;
 
 function EntityLinkComponent(props: PropsTypesT) {
   return (
     <EntityLink
-      iconLeftMargin="0.4em"
-      iconSize="0.8em"
       href={props.url}
       iconName="external-link"
       iconAppend

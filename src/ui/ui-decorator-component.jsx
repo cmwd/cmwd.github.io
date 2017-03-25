@@ -10,8 +10,6 @@ export default function UiDecorator(WrappedComponent) {
       bullet = false,
       iconName,
       iconAppend = false,
-      iconLeftMargin,
-      iconSize,
       children,
       ...rest,
     } = props;
@@ -25,16 +23,12 @@ export default function UiDecorator(WrappedComponent) {
         {!(iconName && !iconAppend) ? null :
           <Icon
             iconName={iconName}
-            iconLeftMargin={iconLeftMargin}
-            iconSize={iconSize}
           />
         }
         {children}
         {!(iconName && iconAppend) ? null :
             <Icon
               iconName={iconName}
-              iconLeftMargin={iconLeftMargin}
-              iconSize={iconSize}
             />
         }
       </WrappedComponent>

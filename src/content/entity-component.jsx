@@ -17,6 +17,10 @@ const Entity = styled.article`
     padding: 0 0 1em;
     page-break-inside: avoid;
   `}
+
+  &:hover .ui__icon {
+    opacity: 1;
+  }
 `;
 
 export default function EntityComponent(props: PropTypesT) {
