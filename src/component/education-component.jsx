@@ -19,9 +19,9 @@ function EducationComponent(props: EducationEntityT) {
           format={DATE_FORMAT}
         />
       </EntityDetails>
-      <EntityHeader>
-        {props.name}
-      </EntityHeader>
+      <EntityHeader
+        children={props.name}
+      />
     </EntityContainer>
   );
 }

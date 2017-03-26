@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import dateFns from 'date-fns';
+import { format } from 'date-fns';
 
 type PropTypesT = {
   start: number;
@@ -14,13 +14,13 @@ export default function DateRangeComponent(props: PropTypesT) {
   if (typeof props.start !== 'number') { return null; }
 
   const {
-    format = 'MM-YYYY',
+    format: dateFormat = 'MM-YYYY',
     endLabel = 'current',
   } = props;
 
-  const start: string = dateFns.format(props.start, format);
+  const start: string = format(props.start, dateFormat);
   const end: string = props.end
-    ? dateFns.format(props.end, format)
+    ? format(props.end, dateFormat)
     : endLabel;
 
   return (

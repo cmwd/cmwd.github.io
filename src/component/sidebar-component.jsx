@@ -1,14 +1,19 @@
 // @flow
 
 import React from 'react';
+import { Column } from 'hedron';
 
 import { PictureContainer, LinksContainer, Link } from './styled/sidebar';
 import CMSText from './styled/cms-text';
 
 import type { SidebarEntityT } from '../entity/entity-types';
 
-export default (props: SidebarEntityT) => (
-  <div className="pure-u-md-3-8">
+type PropTypesT = SidebarEntityT & {
+  md: number;
+};
+
+export default (props: PropTypesT) => (
+  <Column md={props.md}>
     <PictureContainer>
       <img src={props.picture} role="presentation" />
     </PictureContainer>
@@ -32,5 +37,5 @@ export default (props: SidebarEntityT) => (
 
       ))}
     </LinksContainer>
-  </div>
+  </Column>
 );
