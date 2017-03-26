@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Page, Row, Column } from 'hedron';
+import { Row, Column } from 'hedron';
 
 import List from './component/list-component';
 import Position from './component/position-component';
@@ -27,11 +27,10 @@ type PropTypes = {
 function AppComponent({ sidebar, sections }: PropTypes) {
   return (
     <ThemeProvider theme={theme}>
-      <Page>
-      <AppContainer>
-        <Row>
+      <AppContainer tagName="div">
+        <Row tagName="div">
         <Sidebar md={4} {...sidebar} />
-        <Column md={8}>
+        <Column md={8} tagName="main">
           {sections.map(({ items, category }) => (
             <section key={category.slug}>
               <SectionHeader>{category.name}</SectionHeader>
@@ -59,7 +58,6 @@ function AppComponent({ sidebar, sections }: PropTypes) {
         </Column>
         </Row>
       </AppContainer>
-      </Page>
     </ThemeProvider>
   );
 }

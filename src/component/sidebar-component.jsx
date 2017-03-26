@@ -13,7 +13,7 @@ type PropTypesT = SidebarEntityT & {
 };
 
 export default (props: PropTypesT) => (
-  <Column md={props.md}>
+  <Column md={props.md} tagName="section">
     <PictureContainer>
       <img src={props.picture} role="presentation" />
     </PictureContainer>
