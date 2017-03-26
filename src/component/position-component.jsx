@@ -1,41 +1,35 @@
 // @flow
 
 import React from 'react';
-import { format } from 'date-fns';
 
-import Entity from './entity-component';
+import { EntityContainer, EntityHeader, EntityDetails } from './styled/entity';
+import CMSText from './styled/cms-text';
 import EntityLink from './entity-link-component';
-import EntityTitle from './entity-title-component';
 import TagLine from './tagline-component';
-import { TextBlock, Link, DateRange, DetailsBar } from '../ui';
+import DateRange from './date-range-component';
 
 import type { PositionEntityT } from '../entity/entity-types';
 
 
 export default function PositionComponent(props: PositionEntityT) {
   return (
-    <Entity>
+    <EntityContainer>
       <header>
-        <EntityTitle>
+        <EntityHeader>
           <span>{`${props.position} at `}</span>
           <EntityLink url={props.url} name={props.companyName} />
-        </EntityTitle>
-        <DetailsBar>
+        </EntityHeader>
+        <EntityDetails>
           <DateRange start={props.start} end={props.end} />
-          {props.location}
-        </DetailsBar>
+          <span>{` / ${props.location}`}</span>
+        </EntityDetails>
       </header>
-      <TextBlock
-        as="div"
-        className="content__description"
-        children={props.content}
-      />
-    <TagLine tags={props.tags} />
-    </Entity>
+      <CMSText children={props.content} />
+      <TagLine tags={props.tags} />
+    </EntityContainer>
   );
 }
 
 PositionComponent.defaultProps = {
   tags: []
 };
-

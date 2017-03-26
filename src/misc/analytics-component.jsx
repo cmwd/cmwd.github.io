@@ -41,6 +41,7 @@ export default function AnalyticsComponentHOC (WrappedComponent, category) {
 
     render() {
       const {
+        // eslint-disable-next-line no-unused-vars
         gaLabel,
         ...rest
       } = this.props;
@@ -54,4 +55,3 @@ export default function AnalyticsComponentHOC (WrappedComponent, category) {
     }
   }
 };
-

@@ -13,7 +13,7 @@ const DEFAULT_DATE_FORMAT = 'MM-YYYY';
 */
 
 function getEntitieDetails(entityPath )/*: Entity */ {
-  const { meta, html } = marked(fs.readFileSync(entityPath).toString());
+  const { meta, html, markdown } = marked(fs.readFileSync(entityPath).toString());
   const optionalValues = {};
   const { start, end }/*: { start?: string, end?: string} */ = meta;
 
@@ -25,7 +25,7 @@ function getEntitieDetails(entityPath )/*: Entity */ {
     optionalValues.end = Date.parse(end);
   }
 
-  return Object.assign({ content: html }, meta, optionalValues);
+  return Object.assign({ content: html, markdown }, meta, optionalValues);
 }
 
 function slugify(value/*: string */)/*: string */ {

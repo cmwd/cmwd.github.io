@@ -1,15 +1,22 @@
 // @flow
 
-import React, { Component } from 'react';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import 'purecss/build/base-min.css';
 import 'purecss/build/grids-min.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/grids-units-min.css';
 
-import { List, Section, Education, Position, Project, CMS } from './content';
-import Sidebar from './sidebar/sidebar-component';
+import List from './component/list-component';
+import Position from './component/position-component';
+import Education from './component/education-component';
+import Project from './component/project-component';
+import CMS from './component/styled/cms-text';
+import Sidebar from './component/sidebar-component';
+import { AppContainer } from './component/styled/app';
+import { SectionHeader } from './component/styled/header';
+import { theme } from './style';
 
-import './App.css';
 import type { SidebarEntityT, SectionT } from './entity/entity-types';
 
 type PropTypes = {
@@ -17,42 +24,44 @@ type PropTypes = {
   sections: Array<SectionT>,
 };
 
-const layouts = {
-  CMS: CMS,
-  LIST: List,
-  POSITION: Position,
-  PROJECT: Project,
-  EDUCATION: Education,
-};
-
-function ItemComponent({ layout, ...rest }) {
-  const Component = layouts[layout];
-
-  return <Component {...rest} />
-}
-
 function AppComponent({ sidebar, sections }: PropTypes) {
   return (
-    <div className="container">
-      <div className="pure-g">
-        <Sidebar
-          className="app__sidebar pure-u-md-3-8"
-          {...sidebar}
-        />
-        <div className="app__content pure-u-md-5-8">
-          {sections.map(({ items, category }) => (
-            <Section
-                title={category.name}
-                modifier={category.modifier}
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <div className="pure-g">
+          <Sidebar {...sidebar} />
+          <div className="pure-u-md-5-8">
+            {sections.map(({ items, category }) => (
+
+              <section
                 key={category.slug}
-                children={items.map((item, index) => (
-                  <ItemComponent {...item} key={index} />
-                ))}
-              />
-          ))}
+              >
+                <SectionHeader>{category.name}</SectionHeader>
+                {items.map((item, index) => {
+                  if (typeof item.layout !== 'string') {
+                    return null;
+                  }
+
+                  switch(item.layout) {
+                    case 'LIST':
+                      return <List {...item} key={index} />;
+                    case 'POSITION':
+                      return <Position {...item} key={index} />;
+                    case 'PROJECT':
+                      return <Project {...item} key={index} />;
+                    case 'EDUCATION':
+                      return <Education {...item} key={index} />;
+                    default:
+                      return <CMS {...item} key={index} />;
+                  }
+
+                })}
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 

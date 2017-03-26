@@ -4,7 +4,8 @@ export type SidebarLinkT = {
   href: string;
   description: string;
   iconName: string;
-  print?: boolean;
+  print: boolean;
+  web: boolean;
   gaLabel: string;
 };
 
@@ -68,7 +69,10 @@ export type CategoryEntityT = {
   slug: string;
 };
 
-export type SectionEntityT = PositionEntityT|ListEntityT|ProjectEntityT;
+export type SectionEntityT = PositionEntityT
+  |ListEntityT
+  |ProjectEntityT
+  |EducationEntityT;
 
 export type SectionT = {
   category: CategoryEntityT;

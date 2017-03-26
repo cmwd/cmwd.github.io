@@ -2,47 +2,23 @@
 
 import { css } from 'styled-components';
 
-type ScreenSizeT = '48em'|'35.5em';
-type ScreenTypeT = 'screen|print';
-
-const MEDIA = {
-  small: 568,
-  medium: 768,
-  large: 1024,
-  extraLarge: 1280,
-};
+import {
+  COLORS_SET,
+  BASE_FONT_SIZE,
+  MEDIA,
+  fontFamily,
+  printFontFamily,
+} from './variables';
 
 const SCREEN = {
   print: 'print',
   screen: 'screen',
 }
 
-export const DEFAULT_FONT_SIZE = 16;
-
-export const COLOR = {
-  base3: '#fdf6e3',
-  base2: '#eee8d5',
-  base1: '#93a1a1',
-  base0: '#839496',
-  base00: '#657b83',
-  base01: '#586e75',
-  base02: '#073642',
-  base03: '#002b36',
-
-  base001: '#b58900',
-  base002: '#cb4b16',
-  base003: '#dc322f',
-  base004: '#d33682',
-  base005: '#6c71c4',
-  base006: '#268bd2',
-  base007: '#2aa198',
-  base008: '#859900',
-};
-
-export const media = Object
+const media = Object
   .keys(MEDIA)
   .reduce((memo, label) => {
-    const emSize = MEDIA[label] / DEFAULT_FONT_SIZE;
+    const emSize = MEDIA[label] / BASE_FONT_SIZE;
 
     memo[label] = (...args: Array<any>) => css`
       @media (min-width: ${emSize}em) {
@@ -53,7 +29,7 @@ export const media = Object
     return memo;
   }, {});
 
-export const screen = Object
+const screen = Object
   .keys(SCREEN)
   .reduce((memo, label) => {
     memo[label] = (...args: Array<any>) => css`
@@ -65,12 +41,44 @@ export const screen = Object
     return memo;
   }, {});
 
-export const text = css`
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+const defaultFont = css`
+  ${fontFamily}
   font-weight: 300;
   letter-spacing: initial;
   ${screen.print`
-    font-family: Helvetica, Arial, sans-serif;
+    ${printFontFamily}
   `}
 `;
 
+/**
+ * @TODO move to helpers
+ */
+
+const showInPrintScreen = (showInPrint: boolean) => showInPrint ? null :
+  screen.print`
+    display: none;
+  `;
+
+/**
+ * @TODO move to helpers
+ */
+
+const showInWebScreen = (showInWeb: boolean) => showInWeb ? null :
+  screen.screen`
+    display: none;
+  `;
+
+export const theme = {
+  color: COLORS_SET,
+  defaultFont,
+  fontSize: {
+    sectionTitle: '1.5em',
+    title: '1.3em',
+    base: '1em',
+    secondary: '0.8em',
+  },
+  media,
+  screen,
+  showInWebScreen,
+  showInPrintScreen
+};

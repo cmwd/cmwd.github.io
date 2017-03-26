@@ -2,28 +2,22 @@
 
 import React from 'react';
 
-import { Header, TextBlock } from '../ui';
 import Highlighter from '../highlighter/highlighter-container';
 import Analytics from '../misc/analytics-component';
+import { EntityTag } from './styled/entity';
 
 type PropTypes = {
   tags: Array<string>;
 };
 
-const Hashtag = Analytics((props) => (
-  <span {...props} />
-), 'Hashtag');
+const Hashtag = Analytics(EntityTag, 'Hashtag');
 
 export default function TaglineComponent({ tags }: PropTypes) {
   return (
     <Highlighter stack={tags}>
       {
         (({ getClassName, set, cancel }) => (
-          <TextBlock
-            secondary
-            plain
-            as="div"
-            className="content__position-tagline"
+          <div
             onMouseLeave={cancel}
             children={
               tags.map(tag => (
