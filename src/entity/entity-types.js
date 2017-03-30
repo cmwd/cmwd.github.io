@@ -1,5 +1,7 @@
 // @flow
 
+export type VisibilityT = 'ANY'|'SCREEN'|'PRINT';
+
 export type SidebarLinkT = {
   href: string;
   description: string;
@@ -50,6 +52,7 @@ export type ProjectEntityT = {
 
 export type EducationEntityT = {
   layout: 'EDUCATION';
+  content: string;
   categorySlug: string;
   name: string;
   start: number;
@@ -67,6 +70,7 @@ export type CategoryEntityT = {
   modifier:? string;
   order: number;
   slug: string;
+  visibility: VisibilityT;
 };
 
 export type SectionEntityT = PositionEntityT

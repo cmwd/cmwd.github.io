@@ -4,8 +4,6 @@ const marked = require('meta-marked');
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_DATE_FORMAT = 'MM-YYYY';
-
 /*::
   export type Entity = {
     [key: string]: Object

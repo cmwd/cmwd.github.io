@@ -1,6 +1,6 @@
 ---
 name: "Technical Summary"
 slug: "technical_summary"
-modifier: "print-show"
+visibility: "PRINT"
 order: 1
 ---

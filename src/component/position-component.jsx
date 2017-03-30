@@ -24,7 +24,7 @@ export default function PositionComponent(props: PositionEntityT) {
           <span>{` / ${props.location}`}</span>
         </EntityDetails>
       </header>
-      <CMSText children={props.content} />
+      <CMSText {...props} children={props.content} />
       <TagLine tags={props.tags} />
     </EntityContainer>
   );

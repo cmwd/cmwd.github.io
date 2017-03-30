@@ -17,7 +17,11 @@ export default (props: PropTypesT) => (
     <PictureContainer>
       <img src={props.picture} role="presentation" />
     </PictureContainer>
-    <CMSText>{props.content}</CMSText>
+    <CMSText
+      {...props}
+      centeredHeadline
+      children={props.content}
+    />
     <LinksContainer>
       {props.links.map(({
         web = true,

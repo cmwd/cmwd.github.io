@@ -1,6 +1,6 @@
 ---
 name: "Current favourite stack"
 slug: "favourite_stack"
-modifier: "print-hidden"
+visibility: "SCREEN"
 order: 1
 ---

@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { EntityContainer, EntityHeader, EntityDetails } from './styled/entity';
+import CMSText from './styled/cms-text';
 
 import DateRange from './date-range-component';
 import type { EducationEntityT } from '../entity/entity-types';
@@ -21,6 +22,9 @@ function EducationComponent(props: EducationEntityT) {
       </EntityDetails>
       <EntityHeader
         children={props.name}
+      />
+      <CMSText
+        children={props.content}
       />
     </EntityContainer>
   );

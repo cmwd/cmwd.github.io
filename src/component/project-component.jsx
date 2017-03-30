@@ -15,7 +15,7 @@ export default function(props: ProjectEntityT) {
       <EntityHeader>
         <EntityLink url={props.url} name={props.name} />
       </EntityHeader>
-      <CMSText children={props.content} />
+      <CMSText {...props} children={props.content} />
       <TagLine tags={props.tags} />
     </EntityContainer>
   );

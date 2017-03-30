@@ -1,6 +1,6 @@
 ---
 name: "Education"
 slug: "education"
-modifier: "print-show"
+visibility: "PRINT"
 order: 0
 ---

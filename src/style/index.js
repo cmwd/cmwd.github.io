@@ -45,6 +45,7 @@ const defaultFont = css`
   ${fontFamily}
   font-weight: 300;
   letter-spacing: initial;
+  line-height: 1.5em;
   ${screen.print`
     ${printFontFamily}
   `}
