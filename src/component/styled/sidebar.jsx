@@ -1,6 +1,13 @@
 // @flow
 
 import styled from 'styled-components';
+import { Column } from './grid';
+
+export const SidebarContainer = styled(Column)`
+  ${props => props.theme.screen.print`
+    width: 100%;
+  `}
+`;
 
 export const PictureContainer = styled.div`
   ${props => props.theme.screen.print`

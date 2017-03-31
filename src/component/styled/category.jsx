@@ -1,15 +1,8 @@
 // @flow
 
-import React from 'react';
 import styled from 'styled-components';
 
-import type { Children } from 'react';
-import type { VisibilityT } from '../../entity/entity-types';
-
-type PropTypesT = {
-  visibility?: VisibilityT;
-  children?: Children;
-};
+import { Column } from './grid';
 
 const visibleInPrint = (props) =>
   !props.visibility || props.visibility !== 'PRINT'
@@ -25,11 +18,26 @@ const visibileInScreen = (props) =>
       display: none;
     `;
 
-const CategoryTag = styled.section`
+export const Category = styled.section`
     ${visibileInScreen}
     ${visibleInPrint}
   `;
 
-export const Category = (props: PropTypesT) =>
-  <CategoryTag visibility={props.visibility} children={props.children} />
+export const Categories = styled(Column)`
+  ${props => props.theme.media.medium`
+    padding-left: 4em;
+  `}
+
+  ${props => props.theme.screen.print`
+    width: 100% !important;
+    padding-left: 0;
+  `}
+`;
+
+export const CategoryHeader = styled.h2`
+  ${props => props.theme.defaultFont}
+  font-size: ${props => props.theme.fontSize.sectionTitle};
+  color: ${props => props.theme.color.primary};
+  margin-top: 0;
+`;
 

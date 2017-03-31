@@ -8,11 +8,15 @@ export const AppGlobal = injectGlobal`
   body {
     background: ${theme.color.background};
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export const AppContainer = styled(Page)`
   max-width: 960px;
-  margin: 3em auto;
+  margin: 2em auto;
   padding: 0 1em;
 
   ${props => props.theme.media.small`
