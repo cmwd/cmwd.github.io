@@ -31,6 +31,7 @@ export const Categories = styled(Column)`
   ${props => props.theme.screen.print`
     width: 100% !important;
     padding-left: 0;
+    margin-top: 1.2em;
   `}
 `;
 

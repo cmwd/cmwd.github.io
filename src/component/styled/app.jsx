@@ -1,12 +1,17 @@
 // @flow
 
 import styled, { injectGlobal } from 'styled-components';
-import { Page } from 'hedron';
 import { theme } from '../../style';
 
 export const AppGlobal = injectGlobal`
   body {
     background: ${theme.color.background};
+    font-size: ${theme.fontSize.screenBase};
+
+    ${theme.screen.print`
+      font-size: ${theme.fontSize.printBase};
+      background: #fff;
+    `}
   }
 
   * {
@@ -14,7 +19,7 @@ export const AppGlobal = injectGlobal`
   }
 `;
 
-export const AppContainer = styled(Page)`
+export const AppContainer = styled.div`
   max-width: 960px;
   margin: 2em auto;
   padding: 0 1em;

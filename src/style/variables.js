@@ -22,14 +22,25 @@ const COLORS = {
   base008: '#859900',
 };
 
+export const BASE_FONT_SIZE = 16;
+
+export const PRINT_FONT_SIZE = 12;
+
+export const FONT_SIZES = {
+  screenBase: `${BASE_FONT_SIZE}px`,
+  printBase: `${PRINT_FONT_SIZE}px`,
+  sectionTitle: '1.5em',
+  title: '1.3em',
+  base: '1em',
+  secondary: '0.8em',
+};
+
 export const MEDIA = {
   small: 568,
   medium: 768,
   large: 1024,
   extraLarge: 1280,
 };
-
-export const BASE_FONT_SIZE = 16;
 
 export const COLORS_SET = {
   background: COLORS.base3,

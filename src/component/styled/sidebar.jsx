@@ -26,9 +26,11 @@ export const PictureContainer = styled.div`
 `;
 
 export const Link = styled.a`
+  ${props => props.theme.defaultFont}
   padding: 0 0.1em;
   margin: 0 0.2em;
   color: ${props => props.theme.color.detail};
+  text-decoration: none;
 
   &:hover {
     color: ${props => props.theme.color.secondary};
@@ -38,7 +40,12 @@ export const Link = styled.a`
     text-align: left;
     line-height: 1.5em;
     padding: 0;
-    margin: 0 1em 0 ;
+    margin: 0 1em 0 0;
+
+    &:after {
+      content: attr(data-description);
+      margin-left: 0.5em;
+    }
   `}
   ${props => props.theme.showInPrintScreen(props.print)}
   ${props => props.theme.showInWebScreen(props.web)}

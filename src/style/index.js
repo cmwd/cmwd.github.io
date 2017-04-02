@@ -5,6 +5,7 @@ import { css } from 'styled-components';
 import {
   COLORS_SET,
   BASE_FONT_SIZE,
+  FONT_SIZES,
   MEDIA,
   fontFamily,
   printFontFamily,
@@ -72,12 +73,7 @@ const showInWebScreen = (showInWeb: boolean) => showInWeb ? null :
 export const theme = {
   color: COLORS_SET,
   defaultFont,
-  fontSize: {
-    sectionTitle: '1.5em',
-    title: '1.3em',
-    base: '1em',
-    secondary: '0.8em',
-  },
+  fontSize: FONT_SIZES,
   media,
   screen,
   showInWebScreen,
