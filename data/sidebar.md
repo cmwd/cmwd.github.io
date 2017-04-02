@@ -1,5 +1,6 @@
 ---
   layout: sidebar
+  title: "Hello world, I am Piotr"
   printTitle: "Piotr Wojtkowiak"
   picture: "https://www.gravatar.com/avatar/3c19aa8d4482ab802f48d73d41318637?s=300"
   links:
@@ -42,9 +43,6 @@
       iconName: "file-pdf-o"
       gaLabel: "pdf-version"
 ---
-
-# Hello world, I am Piotr
-
 I am a web developer specialized in JavaScript and rich client-side applications. Focused on finding the best solution for a given problem. I'm passionate about new technologies and always eager to help others.
 
 Away from the screen, I like to spin some records, learn something new or try this new craft beer.

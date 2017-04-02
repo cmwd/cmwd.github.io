@@ -64,3 +64,21 @@ export const LinksContainer = styled.div`
     position: sticky;
   `}
 `;
+
+export const SidebarHeader = styled.h1`
+  ${props => props.theme.defaultFont}
+  font-size: ${props => props.theme.fontSize.title};
+  text-align: center;
+
+  &:before {
+    content: '${props => props.title}';
+  }
+
+  ${props => props.theme.screen.print`
+    &:before {
+      content: '${props => props.printTitle}';
+      font-size: 1.6em;
+    }
+  `}
+`;
+

@@ -6,7 +6,8 @@ import {
   PictureContainer,
   LinksContainer,
   Link,
-  SidebarContainer
+  SidebarContainer,
+  SidebarHeader,
 } from './styled/sidebar';
 import CMSText from './styled/cms-text';
 
@@ -21,6 +22,7 @@ export default (props: PropTypesT) => (
     <PictureContainer>
       <img src={props.picture} role="presentation" />
     </PictureContainer>
+    <SidebarHeader title={props.title} printTitle={props.printTitle} />
     <CMSText
       {...props}
       centeredHeadline
