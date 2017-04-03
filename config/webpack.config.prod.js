@@ -45,6 +45,9 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? { publicPath: Array(cssFilename.split('/').length).join('../') }
   : undefined;
 
+const staticHtml = 'static.html';
+const staticCss = 'static.css/index.html';
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -219,6 +222,13 @@ module.exports = {
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
+    new StaticSiteGenerator({
+      entry: 'static',
+      paths: [staticHtml],
+      locals: {
+        initialState: appData,
+      }
+    }),
     // This helps ensure the builds are consistent if source hasn't changed:
     new webpack.optimize.OccurrenceOrderPlugin(),
     // Try to dedupe duplicated modules, if any:
@@ -241,26 +251,24 @@ module.exports = {
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin(cssFilename),
     new StyleExtHtmlWebpackPlugin(),
-    new StaticSiteGenerator({
-      entry: 'static',
-      paths: ['static.html'],
-      locals: {
-        initialState: appData,
-      }
-    }),
     {
       apply(compiler) {
         compiler.plugin('this-compilation', (compilation) => {
           compilation.plugin(
             'html-webpack-plugin-before-html-processing',
             (data, next) => {
-              const staticHtml = 'static.html';
+              const css = compilation.assets[staticCss];
               const source = compilation.assets[staticHtml].source();
+              const mainCssKey = compilation.namedChunks.main.files
+                .find(file => file.endsWith('.css'));
 
               [...compilation.namedChunks.static.files, staticHtml]
                 .forEach(fileName => {
                   delete compilation.assets[fileName];
+                  delete compilation.assets[staticCss];
                 });
+
+              compilation.assets[mainCssKey].add(css);
 
               data.html = data.html.replace('<!--render-here-->', source);
               next(null, data);

@@ -5,8 +5,8 @@ import ReactGA from 'react-ga';
  * @TODO move to env variable
  */
 const GA_ID = 'UA-72751097-1';
-const IS_PROD_ENV = process.env.NODE_ENV === 'production';
-
+const IS_PROD_ENV = typeof window !== 'undefined'
+  && process.env.NODE_ENV === 'production';
 
 if (IS_PROD_ENV) {
   ReactGA.initialize(GA_ID);
